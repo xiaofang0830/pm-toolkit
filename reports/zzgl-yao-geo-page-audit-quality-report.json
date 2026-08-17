@@ -1,0 +1,29 @@
+{
+  "methodology": "yao-geo-page-audit",
+  "source_markdown": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/outputs/zzgl-yao-geo-page-audit.md",
+  "artifacts": {
+    "markdown": {
+      "path": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/outputs/zzgl-yao-geo-page-audit.md",
+      "bytes": 15850,
+      "exists": true
+    },
+    "html": {
+      "path": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/outputs/zzgl-yao-geo-page-audit.html",
+      "bytes": 23805,
+      "exists": true
+    },
+    "pdf": {
+      "path": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/outputs/zzgl-yao-geo-page-audit.pdf",
+      "bytes": 240430,
+      "exists": true
+    }
+  },
+  "layout_checks": {
+    "html_sticky_toc": true,
+    "kami_warm_paper": true,
+    "kami_ink_blue": true,
+    "no_rgba": true,
+    "markdown_table_max_columns": 5,
+    "markdown_tables_within_5_columns": true
+  }
+}

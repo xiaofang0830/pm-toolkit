@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中正锅炉页面 GEO 诊断报告</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f5f4ed;
+      color: #1d2633;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.53;
+    }
+    .shell {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 28px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 24px 56px;
+    }
+    nav {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+      background: #faf9f5;
+      border: 1px solid #d7d0c4;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    nav strong { display: block; color: #1B365D; margin-bottom: 10px; }
+    nav a {
+      display: block;
+      color: #1B365D;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+      padding: 5px 0;
+      border-bottom: 1px solid #ebe5db;
+      font-size: 13px;
+    }
+    nav .toc-l2 { padding-left: 12px; color: #536071; }
+    main {
+      background: #faf9f5;
+      border: 1px solid #d7d0c4;
+      border-radius: 8px;
+      padding: 34px 42px;
+      min-width: 0;
+    }
+    h1, h2, h3 {
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      color: #1B365D;
+      letter-spacing: 0;
+      line-height: 1.25;
+    }
+    h1 { font-size: 34px; margin: 0 0 18px; }
+    h2 { font-size: 24px; margin: 34px 0 12px; padding-top: 4px; border-top: 1px solid #d7d0c4; }
+    h3 { font-size: 18px; margin: 22px 0 8px; }
+    p { margin: 0 0 12px; }
+    ul, ol { padding-left: 24px; margin: 0 0 14px; }
+    li + li { margin-top: 6px; }
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      margin: 14px 0 18px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #d7d0c4;
+      padding: 8px;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+    th { background: #ede9df; color: #1B365D; }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+    pre {
+      background: #efebe2;
+      border: 1px solid #d7d0c4;
+      border-radius: 8px;
+      padding: 12px;
+      line-height: 1.42;
+    }
+    a { color: #1B365D; overflow-wrap: anywhere; }
+    @media (max-width: 900px) {
+      .shell { display: block; padding: 14px; }
+      nav { position: static; margin-bottom: 16px; }
+      main { padding: 22px 16px; }
+      h1 { font-size: 28px; }
+    }
+    @media print {
+      body { background: #f5f4ed; }
+      .shell { display: block; padding: 0; }
+      nav { display: none; }
+      main { border: 0; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav id="TOC"><strong>目录</strong><a class="toc-l1" href="#中正锅炉页面-geo-诊断报告">中正锅炉页面 GEO 诊断报告</a><a class="toc-l2" href="#1-执行摘要">1. 执行摘要</a><a class="toc-l2" href="#2-输入与范围">2. 输入与范围</a><a class="toc-l2" href="#3-页面组合与选择依据">3. 页面组合与选择依据</a><a class="toc-l2" href="#4-五段链路评分">4. 五段链路评分</a><a class="toc-l2" href="#5-公开答案素材问题集">5. 公开答案素材问题集</a><a class="toc-l2" href="#6-权威证据台账">6. 权威证据台账</a><a class="toc-l2" href="#7-抓取与渲染诊断">7. 抓取与渲染诊断</a><a class="toc-l2" href="#8-结构规范性诊断">8. 结构规范性诊断</a><a class="toc-l2" href="#9-内容证据诊断">9. 内容证据诊断</a><a class="toc-l2" href="#10-ai-可抽取性诊断">10. AI 可抽取性诊断</a><a class="toc-l2" href="#11-schema-一致性建议">11. Schema 一致性建议</a><a class="toc-l2" href="#12-移动端与性能">12. 移动端与性能</a><a class="toc-l2" href="#13-修复清单">13. 修复清单</a><a class="toc-l2" href="#14-产品中心推荐信息架构">14. 产品中心推荐信息架构</a><a class="toc-l2" href="#15-质量报告摘要">15. 质量报告摘要</a><a class="toc-l2" href="#16-参考来源">16. 参考来源</a></nav>
+    <main><h1 id="中正锅炉页面-geo-诊断报告">中正锅炉页面 GEO 诊断报告</h1><p>基于 <code>yao-geo-skills / yao-geo-page-audit</code> 方法论重跑 生成日期：2026-08-17</p><h2 id="1-执行摘要">1. 执行摘要</h2><p>本次按姚金刚开源项目 <code>yao-geo-page-audit</code> 的页面诊断方法论，将中正锅炉官网与产品中心放进五段链路中评估：发现入口、检索候选、主内容抽取、证据质量、生成引用。</p><p>结论：中正锅炉页面的品牌和产品大类能被识别，基础标题、描述、H1/H2、canonical 等结构信号较完整；但从 GEO 视角看，当前页面还不够像“可被 AI 搜索放心抽取和引用的官方资料页”。最需要优先处理的是可抓取性异常、证据来源不足、参数表缺失、FAQ 缺失、更新时间缺失和 schema 缺失。</p><p>P0/P1 风险：</p><ul><li>P0：本地可复测请求出现 HTTP/2 stream 错误、HTTPS 空响应、HTTP 444、robots/sitemap 空响应或超时，可能影响部分抓取器把页面纳入候选素材。</li><li>P1：产品中心缺少同口径参数表、选型 FAQ、来源说明、更新时间，削弱 AI 对“锅炉怎么选、产品有哪些、如何比较供应商”的抽取和引用准备度。</li><li>P1：快照中没有 JSON-LD schema，AI 和搜索系统缺少结构化实体、产品、FAQ、面包屑线索。</li></ul><p>边界说明：本轮没有服务器日志、CMS 后台、真实浏览器 DOM、AI 平台回答样本，因此不判断真实抓取频次、平台召回、排名、答案出现率或引用份额。</p><h2 id="2-输入与范围">2. 输入与范围</h2><table><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>品牌</td><td>中正锅炉</td></tr><tr><td>官网</td><td><a href="https://www.zzgl.cn/">官网首页</a></td></tr><tr><td>产品中心</td><td><a href="https://www.zzgl.cn/chanpinzhongxin/">产品中心</a></td></tr><tr><td>目标问题</td><td>工业锅炉厂家怎么选；中正锅炉产品有哪些；蒸汽锅炉和热水锅炉怎么选；燃气锅炉和生物质锅炉哪个好</td></tr><tr><td>可用材料</td><td>用户提供 URL；上一轮 GEOHub 快照；本地 HTTP/DNS/TLS 复测；yao-geo-page-audit 方法论</td></tr><tr><td>不可用材料</td><td>服务器日志、CMS 源码、真实渲染 DOM、PageSpeed 数据、AI 平台采样回答</td></tr></tbody></table><h2 id="3-页面组合与选择依据">3. 页面组合与选择依据</h2><table><thead><tr><th>页面</th><th>类型</th><th>选择依据</th><th>本轮状态</th></tr></thead><tbody><tr><td>首页</td><td>首页</td><td>品牌入口页，承载品牌实体、产品入口、服务入口</td><td>已基于本地快照和请求复测诊断</td></tr><tr><td>产品中心</td><td>一级页</td><td>用户指定，承载主要产品分类和询价意图</td><td>已基于本地快照和请求复测诊断</td></tr><tr><td>WNS/SZS 等产品详情页</td><td>二级页候选</td><td>产品中心首类为燃油/燃气锅炉，详情页通常承载参数和场景</td><td>未纳入结构评分；缺少可稳定抓取 HTML</td></tr></tbody></table><p>输入缺口：用户没有提供具体二级产品详情页 URL，本地抓取也不稳定，所以二级页只作为后续抽样建议，不写成已观察结论。</p><h2 id="4-五段链路评分">4. 五段链路评分</h2><table><thead><tr><th>链路阶段</th><th>分数</th><th>判断</th></tr></thead><tbody><tr><td>发现入口</td><td>45/100</td><td>DNS 能解析，官方 URL 明确；但 HTTP/HTTPS/robots/sitemap 复测异常</td></tr><tr><td>检索候选</td><td>40/100</td><td>页面主题明确，但抓取异常可能影响部分检索系统候选构建</td></tr><tr><td>主内容抽取</td><td>62/100</td><td>标题、meta、canonical、H1/H2、main 基础结构可用；缺 FAQ、表格、锚点、schema</td></tr><tr><td>证据质量</td><td>32/100</td><td>官方产品大类和联系信息可见；缺参数来源、手册、案例、检测报告、更新时间</td></tr><tr><td>生成引用</td><td>38/100</td><td>有可引用的品牌和产品分类事实；缺可独立引用的原子事实、问答、表格和来源标注</td></tr></tbody></table><h2 id="5-公开答案素材问题集">5. 公开答案素材问题集</h2><table><thead><tr><th>高意图问题</th><th>需要补的官方素材</th><th>优先级</th></tr></thead><tbody><tr><td>中正锅炉产品有哪些？</td><td>产品分类总览、每类锅炉定义、适用行业、容量范围、资料链接</td><td>P1</td></tr><tr><td>工业锅炉厂家怎么选？</td><td>选型流程、工况参数清单、服务边界、案例来源、售后能力说明</td><td>P1</td></tr><tr><td>燃气锅炉和生物质锅炉哪个好？</td><td>同口径比较表：燃料、排放、热效率、运行成本、适用场景</td><td>P1</td></tr><tr><td>食品厂/化工厂如何选锅炉？</td><td>行业场景页：蒸汽需求、压力、排放、典型方案和案例链接</td><td>P2</td></tr><tr><td>导热油锅炉适合哪些场景？</td><td>高温低压供热边界、适用行业、典型型号、限制条件</td><td>P2</td></tr><tr><td>循环流化床锅炉和燃煤锅炉区别？</td><td>技术边界、燃料适应性、脱硫/低氮说明、容量范围</td><td>P2</td></tr></tbody></table><p>这些问题不是 AI 平台表现数据，而是“公开答案素材准备度”问题集。</p><h2 id="6-权威证据台账">6. 权威证据台账</h2><table><thead><tr><th>结论</th><th>来源层级</th><th>页面或材料</th><th>影响</th><th>可信度</th></tr></thead><tbody><tr><td>DNS 可解析到公网 IP <code>193.112.50.236</code></td><td>观察</td><td>本地 DNS 复测</td><td>说明域名基础解析存在</td><td>高</td></tr><tr><td>HTTPS 首页 HEAD 请求出现 HTTP/2 stream 错误</td><td>观察</td><td>本地 curl 复测</td><td>可能影响部分抓取器候选获取</td><td>中</td></tr><tr><td>HTTPS 首页 HTTP/1.1 请求出现空响应</td><td>观察</td><td>本地 curl 复测</td><td>可抓取性风险，需要服务端复测</td><td>中</td></tr><tr><td>HTTP 首页返回 nginx 444</td><td>观察</td><td>本地 curl 复测</td><td>非浏览器/异常请求可能被边缘服务拒绝</td><td>高</td></tr><tr><td>robots.txt 和 sitemap.xml 请求空响应</td><td>观察</td><td>本地 curl 复测</td><td>发现入口和规范入口不稳定</td><td>中</td></tr><tr><td>首页快照包含 title、meta description、canonical、1 个 H1、4 个 H2</td><td>观察</td><td>本地 HTML 快照</td><td>基础结构信号较好</td><td>中</td></tr><tr><td>产品中心快照包含 title、meta description、canonical、1 个 H1、6 个 H2</td><td>观察</td><td>本地 HTML 快照</td><td>产品分类结构可抽取</td><td>中</td></tr><tr><td>快照中未观察到 JSON-LD schema</td><td>观察</td><td>本地 HTML 快照</td><td>实体和 FAQ 结构化信号不足</td><td>中</td></tr><tr><td>结构化数据必须匹配页面可见正文</td><td>标准</td><td>Google 结构化数据指南</td><td>防止 schema 虚构事实</td><td>高</td></tr><tr><td>没有 AI 平台采样时不能判断召回、排名或引用份额</td><td>研究/方法</td><td>yao-geo-page-audit 方法论</td><td>避免把页面准备度误写成平台表现</td><td>高</td></tr></tbody></table><h2 id="7-抓取与渲染诊断">7. 抓取与渲染诊断</h2><p>观察：</p><ul><li><code>www.zzgl.cn</code> 和 <code>zzgl.cn</code> 均能解析到公网 IP。</li><li><code>https://www.zzgl.cn/</code> 的 HEAD 请求出现 HTTP/2 stream 内部错误。</li><li><code>https://www.zzgl.cn/</code> 使用 HTTP/1.1 请求时出现空响应。</li><li><code>http://www.zzgl.cn/</code> 返回 nginx <code>444</code>。</li><li><code>robots.txt</code> 和 <code>sitemap.xml</code> 请求出现空响应。</li><li><code>https://m.zzgl.cn/chanpinzhongxin/</code> 复测超时。</li></ul><p>影响：</p><ul><li>这不等于搜索引擎或 AI 平台一定抓不到，但说明非典型客户端、无 Cookie 客户端或部分抓取器可能遇到候选获取失败。</li><li><code>robots.txt</code> 和 <code>sitemap.xml</code> 不稳定会削弱发现入口质量。</li></ul><p>行动：</p><pre><code class="language-bash">URL=&quot;https://www.zzgl.cn/&quot;
+curl -I --http1.1 -L &quot;$URL&quot;
+curl -I --http2 -L &quot;$URL&quot;
+curl -L &quot;https://www.zzgl.cn/robots.txt&quot;
+curl -L &quot;https://www.zzgl.cn/sitemap.xml&quot;</code></pre><p>验收：</p><ul><li>首页、产品中心、robots、sitemap 在无 Cookie、普通 User-Agent 下返回 200 或合理 3xx。</li><li>HTTPS/HTTP2/HTTP1.1 均不出现空响应、444、stream error。</li><li>移动端 URL 能稳定返回可读内容或明确 301 到 canonical URL。</li></ul><h2 id="8-结构规范性诊断">8. 结构规范性诊断</h2><p>首页快照：</p><ul><li>title：存在。</li><li>meta description：存在，约 51 字。</li><li>canonical：存在。</li><li>H1：1 个，为“中正锅炉”。</li><li>H2：4 个，覆盖产品系列、行业解决方案、服务支持、联系方式。</li><li>main：存在。</li><li>JSON-LD：未观察到。</li><li>表格：未观察到。</li><li>FAQ：未观察到。</li><li>可见正文长度：约 267 字。</li></ul><p>产品中心快照：</p><ul><li>title：存在。</li><li>meta description：存在，约 54 字。</li><li>canonical：存在。</li><li>H1：1 个，为“锅炉产品中心”。</li><li>H2：6 个，覆盖燃油/燃气、燃煤、生物质、导热油、循环流化床、询价与联系。</li><li>main：存在。</li><li>JSON-LD：未观察到。</li><li>表格：未观察到。</li><li>FAQ：未观察到。</li><li>可见正文长度：约 396 字。</li></ul><p>判断：</p><ul><li>结构骨架可用，但页面仍偏“分类展示”，没有把参数、证据、选型边界做成机器可稳定抽取的模块。</li></ul><h2 id="9-内容证据诊断">9. 内容证据诊断</h2><p>已有正向信号：</p><ul><li>品牌实体明确。</li><li>产品大类明确。</li><li>联系电话和地址可作为组织实体辅助信息。</li></ul><p>主要缺口：</p><ul><li>缺少产品系列的统一参数表。</li><li>缺少产品手册、检测报告、案例页或资料下载作为引用来源。</li><li>缺少更新时间、审核人或资料版本。</li><li>缺少产品适用边界和不适用边界。</li><li>缺少对“锅炉选型”“供应商比较”“询价准备”的官方问答。</li></ul><p>内容改造方向：</p><ol><li>首屏摘要：80-120 字说明中正锅炉是谁、产品覆盖什么、适合哪些场景。</li><li>产品事实表：每类锅炉使用相同字段。</li><li>选型 FAQ：按采购、设备、项目负责人问题组织。</li><li>来源说明：每个参数和案例绑定资料来源。</li><li>更新时间：每个页面或资料模块保留审核时间。</li></ol><h2 id="10-ai-可抽取性诊断">10. AI 可抽取性诊断</h2><p>当前页面对 AI 可抽取性的主要阻力：</p><ul><li>原子事实少：例如“哪类锅炉适合什么行业”没有拆成独立事实。</li><li>键值对少：容量、压力、燃料、排放、效率等没有统一字段。</li><li>对比表缺失：不利于回答“燃气锅炉和生物质锅炉哪个好”。</li><li>FAQ 缺失：不利于回答采购前常见问题。</li><li>chunk 引用准备不足：段落没有清晰来源、更新时间、锚点或资料链接。</li></ul><p>建议新增模块：</p><pre><code class="language-html">&lt;section id=&quot;product-summary&quot;&gt;
+  &lt;h2&gt;中正锅炉产品中心概览&lt;/h2&gt;
+  &lt;p&gt;中正锅炉产品中心覆盖燃油燃气锅炉、燃煤锅炉、
+  生物质锅炉、导热油锅炉和循环流化床锅炉，面向
+  工业供热、蒸汽、热水及导热油等应用场景。&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section id=&quot;selection-faq&quot;&gt;
+  &lt;h2&gt;锅炉选型常见问题&lt;/h2&gt;
+  &lt;h3&gt;询价前需要准备哪些工况参数？&lt;/h3&gt;
+  &lt;p&gt;建议准备燃料类型、额定蒸发量或热功率、压力、
+  温度、排放要求、使用行业、运行时间和安装地区。&lt;/p&gt;
+&lt;/section&gt;</code></pre><h2 id="11-schema-一致性建议">11. Schema 一致性建议</h2><p>快照中未观察到 JSON-LD。建议优先补充 <code>Organization</code>、<code>WebPage</code>、<code>BreadcrumbList</code>，在 FAQ 正文上线后再补 <code>FAQPage</code>。</p><p>示例只应使用页面可见事实：</p><pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;中正锅炉&quot;,
+  &quot;url&quot;: &quot;https://www.zzgl.cn/&quot;,
+  &quot;telephone&quot;: &quot;13506151202&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;addressRegion&quot;: &quot;江苏&quot;,
+    &quot;addressLocality&quot;: &quot;无锡宜兴&quot;,
+    &quot;streetAddress&quot;: &quot;周铁镇新达路76号&quot;
+  }
+}</code></pre><p>验收：</p><ul><li>schema 字段都能在页面可见正文或官方资料中回溯。</li><li>使用 Schema.org validator 和 Google Rich Results Test 复测。</li><li>不把未在正文出现的热效率、排放、案例、价格写入 schema。</li></ul><h2 id="12-移动端与性能">12. 移动端与性能</h2><p>本轮限制：</p><ul><li>未获得稳定移动端 HTML。</li><li>未运行 PageSpeed、Lighthouse 或 Web Vitals。</li></ul><p>风险：</p><ul><li>如果移动端内容少于桌面端，移动优先索引和 AI 抽取可能拿不到完整产品事实。</li><li>如果产品参数通过懒加载或客户端 JS 后置加载，部分抓取器可能只看到空容器。</li></ul><p>复测建议：</p><pre><code class="language-bash">URL=&quot;https://www.zzgl.cn/chanpinzhongxin/&quot;
+npx lighthouse &quot;$URL&quot; --preset=desktop
+npx lighthouse &quot;$URL&quot; --preset=mobile</code></pre><p>验收：</p><ul><li>移动端和桌面端都有相同的核心正文、标题、meta、schema 和产品参数。</li><li>首屏主要内容不依赖用户交互后才加载。</li><li>LCP、INP、CLS 有明确监测结果。</li></ul><h2 id="13-修复清单">13. 修复清单</h2><h3 id="p0修复可抓取性异常">P0：修复可抓取性异常</h3><p>问题：本地请求出现 HTTP/2 stream 错误、空响应、HTTP 444、robots/sitemap 空响应。 证据：本地 curl、DNS、HTTP 复测。 影响：可能阻断部分抓取器进入发现入口和检索候选阶段。 动作：检查 nginx、WAF、防盗链、User-Agent 策略、HTTP/2 配置、robots/sitemap 路由。 负责人：技术/运维。 成本：中。 验收：无 Cookie curl 可稳定返回 200/3xx，robots/sitemap 可访问。</p><h3 id="p1重构产品中心首屏与参数表">P1：重构产品中心首屏与参数表</h3><p>问题：产品大类可识别，但缺少统一参数、适用行业、资料来源。 证据：产品中心快照有 H2 分类，但无表格和来源模块。 影响：不利于 AI 回答“产品有哪些”“怎么选”“适合什么场景”。 动作：新增首屏摘要、产品事实表、资料链接、更新时间。 负责人：产品/内容/CMS。 成本：中。 验收：每类锅炉至少有 8 个统一字段，并绑定来源链接。</p><h3 id="p1新增选型-faq">P1：新增选型 FAQ</h3><p>问题：快照中没有 FAQ 问答。 证据：FAQ-like 问号数量为 0。 影响：不利于生成式引擎直接回答高意图问题。 动作：新增 8-12 个选型问答，覆盖燃料、容量、压力、排放、行业、询价准备。 负责人：产品/销售工程师/内容。 成本：低到中。 验收：FAQ 正文上线，问题能独立回答，答案引用资料来源。</p><h3 id="p1补充-schema">P1：补充 schema</h3><p>问题：快照中未观察到 JSON-LD。 证据：HTML 快照 json-ld count 为 0。 影响：实体、面包屑和 FAQ 结构化信号不足。 动作：补 <code>Organization</code>、<code>WebPage</code>、<code>BreadcrumbList</code>，FAQ 上线后补 <code>FAQPage</code>。 负责人：前端/SEO。 成本：低。 验收：结构化数据校验通过，字段均可在正文回溯。</p><h3 id="p2建立公开资料和案例证据库">P2：建立公开资料和案例证据库</h3><p>问题：页面缺少产品手册、案例页、检测报告、版本日期。 证据：快照未观察到来源、参考、更新、检测等证据语言。 影响：引用源质量不足，难支撑高置信回答。 动作：建立资料下载页、行业案例页、参数说明页、更新记录。 负责人：产品/技术文档/销售工程师。 成本：中到高。 验收：关键参数和案例均有官方页面或 PDF 资料支撑。</p><h2 id="14-产品中心推荐信息架构">14. 产品中心推荐信息架构</h2><ol><li>首屏摘要：中正锅炉是谁、产品覆盖什么、服务哪些行业。</li><li>产品系列导航：燃油燃气、燃煤、生物质、导热油、循环流化床。</li><li>产品参数总表：统一字段和筛选入口。</li><li>选型流程：工况收集、方案匹配、报价、安装、售后。</li><li>行业方案：食品、化工、制药、造纸、学校宾馆等。</li><li>选型 FAQ：面向采购和设备负责人的真实问题。</li><li>证据与来源：产品手册、案例、报告、更新时间。</li><li>联系与询价：热线、表单、地址、服务边界。</li></ol><h2 id="15-质量报告摘要">15. 质量报告摘要</h2><table><thead><tr><th>自检项</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>范围完整</td><td>通过</td><td>覆盖首页、一级产品中心，并标出二级页输入缺口</td></tr><tr><td>证据完整</td><td>通过</td><td>关键结论标记观察、官方、标准、研究、推断或缺口</td></tr><tr><td>技术完整</td><td>通过</td><td>覆盖抓取、渲染、移动、结构、schema、性能风险</td></tr><tr><td>内容完整</td><td>通过</td><td>覆盖实体、事实、来源、时间、服务边界、FAQ</td></tr><tr><td>AI 完整</td><td>通过</td><td>覆盖抽取、chunk、问答、引用准备度和公开答案素材</td></tr><tr><td>平台表现边界</td><td>通过</td><td>未写平台召回、排名、答案频次或引用份额</td></tr></tbody></table><h2 id="16-参考来源">16. 参考来源</h2><ul><li><a href="https://github.com/yaojingang/yao-geo-skills">yao-geo-skills GitHub 仓库</a></li><li><a href="https://raw.githubusercontent.com/yaojingang/yao-geo-skills/main/skills/yao-geo-page-audit/SKILL.md">yao-geo-page-audit SKILL.md</a></li><li><a href="https://raw.githubusercontent.com/yaojingang/yao-geo-skills/main/skills/yao-geo-page-audit/references/research-foundation.md">页面 GEO 诊断研究依据</a></li><li><a href="https://raw.githubusercontent.com/yaojingang/yao-geo-skills/main/skills/yao-geo-page-audit/references/authority-reference-model.md">权威参考与证据分层</a></li><li><a href="https://raw.githubusercontent.com/yaojingang/yao-geo-skills/main/skills/yao-geo-page-audit/references/quality-gates.md">页面 GEO 诊断质量门</a></li><li><a href="https://www.zzgl.cn/">中正锅炉官网首页</a></li><li><a href="https://www.zzgl.cn/chanpinzhongxin/">中正锅炉产品中心</a></li></ul></main>
+  </div>
+</body>
+</html>
