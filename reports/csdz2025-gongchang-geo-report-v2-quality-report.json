@@ -1,0 +1,47 @@
+{
+  "artifacts": {
+    "markdown": {
+      "path": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/outputs/csdz2025-gongchang-geo-report-v2.md",
+      "exists": true,
+      "bytes": 18061
+    },
+    "html": {
+      "path": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/outputs/csdz2025-gongchang-geo-report-v2.html",
+      "exists": true,
+      "bytes": 35169
+    },
+    "pdf": {
+      "path": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/outputs/csdz2025-gongchang-geo-report-v2.pdf",
+      "exists": true,
+      "bytes": 260231,
+      "pages": 8
+    }
+  },
+  "layout_checks": {
+    "topbar_nav": true,
+    "hero": true,
+    "summary_grid": true,
+    "risk_cards": true,
+    "print_button": true,
+    "no_rgba_function": true,
+    "markdown_table_max_columns": 4,
+    "markdown_tables_within_5_columns": true
+  },
+  "evidence_files": {
+    "snapshot_dir": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/work/csdz2025-audit",
+    "extracted_signals": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/work/csdz2025-audit/extracted-signals.json",
+    "clean_summary": "/Users/fangliu/Documents/Codex/2026-08-15/new-chat-2/work/csdz2025-audit/clean-summary.json"
+  },
+  "pdf_checks": {
+    "metadata_title": "新疆辰顺世界工厂网商铺 GEO 诊断报告 V2",
+    "text_extractable": true,
+    "rendered_png_pages": 8,
+    "visual_spot_check_pages": [
+      1,
+      4,
+      8
+    ],
+    "font_boxes_observed": false,
+    "major_overlap_observed": false
+  }
+}
