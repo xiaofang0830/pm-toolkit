@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>上海航欧世界工厂网商铺 GEO 诊断报告 V2</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5f6f84;
+      --line: #d9e2ec;
+      --paper: #f7f9fc;
+      --surface: #ffffff;
+      --blue: #155eef;
+      --blue-soft: #edf4ff;
+      --cyan: #067a91;
+      --cyan-soft: #e9fbff;
+      --green: #047857;
+      --green-soft: #ecfdf3;
+      --amber: #b54708;
+      --amber-soft: #fffaeb;
+      --red: #b42318;
+      --red-soft: #fff1f0;
+      --purple: #6d28d9;
+      --purple-soft: #f5f3ff;
+      --shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.7;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 249, 252, 0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 800;
+      color: #243246;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 13px;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(6, 122, 145, 0.10), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #f2f7fb 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 56px 22px 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 30px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(34px, 4.8vw, 58px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 840px;
+      color: #475569;
+      font-size: 18px;
+    }
+
+    .meta {
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .decision {
+      padding: 22px;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      background: var(--cyan-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .decision h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .decision p {
+      margin: 0;
+      color: #334155;
+      font-size: 15px;
+    }
+
+    .content {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 36px 22px 70px;
+    }
+
+    .section {
+      margin: 0 0 38px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 27px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lead {
+      max-width: 920px;
+      color: #475569;
+      font-size: 16px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      min-height: 138px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .metric span {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #fff;
+      background: #334155;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .metric .high {
+      background: var(--red);
+    }
+
+    .metric .medium {
+      background: var(--amber);
+    }
+
+    .metric .low {
+      background: var(--green);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .metric p {
+      color: #536579;
+      font-size: 14px;
+    }
+
+    .callout {
+      padding: 17px 18px;
+      border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .callout.warning {
+      border-color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .callout.danger {
+      border-color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .callout.success {
+      border-color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .risk-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .risk {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      height: 34px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .tag.p0 {
+      color: var(--red);
+      background: var(--red-soft);
+      border: 1px solid #ffccc7;
+    }
+
+    .tag.p1 {
+      color: var(--amber);
+      background: var(--amber-soft);
+      border: 1px solid #fedf89;
+    }
+
+    .tag.p2 {
+      color: var(--green);
+      background: var(--green-soft);
+      border: 1px solid #abefc6;
+    }
+
+    .risk p {
+      color: #475569;
+      font-size: 14px;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .step .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      color: var(--purple);
+      background: var(--purple-soft);
+      font-weight: 850;
+    }
+
+    .step p {
+      color: #536579;
+      font-size: 14px;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .check span:first-child {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      color: var(--green);
+      background: var(--green-soft);
+      font-weight: 850;
+    }
+
+    pre {
+      margin: 14px 0 0;
+      padding: 16px;
+      overflow-x: auto;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    .source-list {
+      columns: 2;
+      column-gap: 28px;
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .source-list li {
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin: 18px 0 22px;
+    }
+
+    button {
+      min-height: 38px;
+      padding: 8px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #f8fafc;
+    }
+
+    @media (max-width: 940px) {
+      .hero-inner,
+      .summary-grid,
+      .roadmap,
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+
+      .decision {
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        position: static;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero-inner {
+        padding: 36px 18px 28px;
+      }
+
+      .content {
+        padding: 28px 18px 56px;
+      }
+
+      .risk {
+        grid-template-columns: 1fr;
+      }
+
+      .source-list {
+        columns: 1;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .actions {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .section,
+      .hero {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand">上海航欧 GEO V2</div>
+      <div class="nav-links" role="navigation" aria-label="页面目录">
+        <a href="#summary">结论</a>
+        <a href="#evidence">证据边界</a>
+        <a href="#crawl">抓取</a>
+        <a href="#answer">答案素材</a>
+        <a href="#tech">技术建议</a>
+        <a href="#acceptance">验收</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Generative Engine Optimization Audit</p>
+        <h1>上海航欧世界工厂网商铺 GEO 诊断报告 V2</h1>
+        <p class="subtitle">
+          基于 yao-geo-skills 页面诊断方法论、奥卡姆剃刀与第一性原理重排：先确认页面能抓到、能读懂、能被信任，再把采购者会问的问题整理成 AI 可直接引用的答案素材。
+        </p>
+        <div class="meta">
+          <span class="pill">生成日期：2026-08-19</span>
+          <span class="pill">分析抽样：2026-08-18</span>
+          <span class="pill">主对象：世界工厂网企业商铺</span>
+          <span class="pill">输出：可执行 GEO 修复报告</span>
+        </div>
+      </div>
+      <div class="decision" id="summary" role="note">
+        <h2>一句话结论</h2>
+        <p>
+          这家商铺不是“没有内容”，而是公司、产品、联系方式和认证素材尚未组织成 AI 搜索可稳定引用的答案层；最小有效改造是先保证供应产品列表和发现入口可被读取，再把公司事实、产品事实、代理品牌、适用行业、询价条件和来源说明做成结构化模块。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content" role="main">
+    <div class="section" aria-labelledby="priority-title">
+      <h2 id="priority-title">1. 结论与优先级</h2>
+      <p class="lead">
+        本版报告沿用中正锅炉 V2 的版式和信息组织方式，用风险等级和行动优先级替代复杂评分。核心判断来自 2026-08-18 对世界工厂网商铺首页、供应产品页、产品详情页、公司介绍页、联系方式页和官网补充观察。
+      </p>
+      <div class="summary-grid">
+        <div class="metric">
+          <span class="high">高风险</span>
+          <strong>供应产品列表抽取异常</strong>
+          <p>供应产品页标题可见，但浏览器抽样正文为空；产品集合页可能无法作为检索候选和答案素材入口。</p>
+        </div>
+        <div class="metric">
+          <span class="high">高风险</span>
+          <strong>发现入口不稳定</strong>
+          <p>sitemap.xml 返回 404 型 HTML；robots.txt 本轮被浏览器客户端拦截，需平台或服务器侧复核。</p>
+        </div>
+        <div class="metric">
+          <span class="medium">中风险</span>
+          <strong>结构化信号缺失</strong>
+          <p>首页、介绍、联系方式页未观察到 canonical；抽样页面均未观察到 JSON-LD。</p>
+        </div>
+        <div class="metric">
+          <span class="medium">中风险</span>
+          <strong>答案素材未聚合</strong>
+          <p>已有公司介绍、主营、产品分类、推荐产品和联系方式，但缺统一采购答案层。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" aria-labelledby="actions-title">
+      <h2 id="actions-title">立刻做的三件事</h2>
+      <div class="risk-list">
+        <div class="risk">
+          <div><span class="tag p0">P0</span></div>
+          <div>
+            <h3>确认供应产品列表是否可被抓取和抽取</h3>
+            <p>
+              供应产品页 <a href="https://qiye.gongchang.com/shho/sell/">https://qiye.gongchang.com/shho/sell/</a> 在浏览器抽样中页面标题为“供应产品”，但正文长度为 0。先联系世界工厂网平台或模板管理员复测 PC、移动、无登录、无 Cookie 状态；若平台短期不能修复，就在首页和公司介绍页增加“主推产品清单”和详情内链作为兜底入口。
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div><span class="tag p1">P1</span></div>
+          <div>
+            <h3>把首页改成“采购答案层”</h3>
+            <p>
+              首页已有主营、注册年份、经营模式、地址、认证、推荐产品等事实，但没有组织成“公司是谁、卖什么、适合哪些行业、怎么询价、证据来自哪里”的答案结构。建议新增公司事实卡、产品类别事实表、代理品牌/授权新闻索引、询价资料清单和 8-12 个采购 FAQ。
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div><span class="tag p1">P1</span></div>
+          <div>
+            <h3>统一商铺与企业官网的官方入口表达</h3>
+            <p>
+              联系方式页展示官网 <a href="http://www.shhangou.com">www.shhangou.com</a>，浏览器抽样可打开为 HTTPS；但官网 canonical 指向 <code>/en/</code>。需要明确商铺负责平台内采购入口，官网负责企业背书，并让企业名称、电话、地址、主营和官方入口跨页面保持一致。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="evidence" aria-labelledby="evidence-title">
+      <h2 id="evidence-title">2. 证据边界</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>证据项</th>
+              <th>本次观察</th>
+              <th>可得结论</th>
+              <th>不能推出</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>商铺首页</td>
+              <td>浏览器可打开，标题、meta、H1、公司介绍、推荐产品和联系方式可见。</td>
+              <td>基础企业与产品事实可被读取。</td>
+              <td>不能证明搜索引擎或 AI 平台实际收录和引用。</td>
+            </tr>
+            <tr>
+              <td>供应产品页</td>
+              <td>标题为“供应产品”，但正文抽样为空。</td>
+              <td>列表页存在抽取风险。</td>
+              <td>不能断言所有访问地区或所有客户端都为空。</td>
+            </tr>
+            <tr>
+              <td>产品详情页</td>
+              <td><code>walton执行器waltonAC M2A</code> 页面可读，有价格、起订量、供货量、发货期限、更新时间和型号正文。</td>
+              <td>详情页是当前最强产品事实来源之一。</td>
+              <td>不能代表全部产品详情页质量。</td>
+            </tr>
+            <tr>
+              <td>公司介绍页</td>
+              <td>可读，有公司简介、注册资本、注册年份、经营模式、经营范围和销售产品。</td>
+              <td>公司事实素材较完整。</td>
+              <td>不能证明平台认证材料真实有效。</td>
+            </tr>
+            <tr>
+              <td>联系方式页</td>
+              <td>可读，有地址、官网、联系人、在线留言和页脚电话。</td>
+              <td>联系入口明确。</td>
+              <td>不能替代企业官方工商或资质核验。</td>
+            </tr>
+            <tr>
+              <td>平台 sitemap</td>
+              <td><code>qiye.gongchang.com/sitemap.xml</code> 和 <code>www.gongchang.com/sitemap.xml</code> 返回 404 型 HTML。</td>
+              <td>sitemap 入口不稳定或路径不可用。</td>
+              <td>不能判断平台是否有其他 sitemap 路径。</td>
+            </tr>
+            <tr>
+              <td>robots</td>
+              <td>浏览器导航到 robots.txt 被客户端拦截。</td>
+              <td>本轮无法完成 robots 内容判断。</td>
+              <td>不能写成服务器禁止抓取。</td>
+            </tr>
+            <tr>
+              <td>企业官网</td>
+              <td><code>www.shhangou.com</code> 可打开，中文正文可读，canonical 指向 <code>/en/</code>。</td>
+              <td>官网与商铺存在入口一致性复核点。</td>
+              <td>本报告不对官网全站做完整审计。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="crawl" aria-labelledby="crawl-title">
+      <h2 id="crawl-title">3. 抓取可用性诊断</h2>
+      <p class="lead">
+        第一性原理：GEO 优化先看页面能不能进入“候选素材”。如果集合页空、发现入口弱、canonical 不一致，后面的内容优化会被折损。
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>URL</th>
+              <th>观察结果</th>
+              <th>风险等级</th>
+              <th>建议动作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://qiye.gongchang.com/shho/">商铺首页</a></td>
+              <td>可读；H1 为公司名；无 canonical；无 JSON-LD。</td>
+              <td>中</td>
+              <td>补正文事实卡；能改模板则补 canonical 和 Organization schema。</td>
+            </tr>
+            <tr>
+              <td><a href="https://qiye.gongchang.com/shho/sell/">供应产品页</a></td>
+              <td>标题可见但正文为空。</td>
+              <td>高</td>
+              <td>复测模板渲染；首页增加主推产品清单作为兜底入口。</td>
+            </tr>
+            <tr>
+              <td><a href="https://qiye.gongchang.com/shho/sell/itemid-906526268.html">产品详情页抽样</a></td>
+              <td>可读；canonical 指向 <code>chanpin.gongchang.com/show/906526268/</code>。</td>
+              <td>中</td>
+              <td>确认详情页 canonical 策略；补产品事实字段和来源说明。</td>
+            </tr>
+            <tr>
+              <td><a href="https://qiye.gongchang.com/shho/introduce/">公司介绍页</a></td>
+              <td>可读；公司档案有注册资本、注册年份、经营模式。</td>
+              <td>中</td>
+              <td>把公司档案改成可独立引用的事实表。</td>
+            </tr>
+            <tr>
+              <td><a href="https://qiye.gongchang.com/shho/contact/">联系方式页</a></td>
+              <td>可读；展示企业官网和联系方式。</td>
+              <td>低到中</td>
+              <td>明确官网与商铺关系；避免不同页面信息不一致。</td>
+            </tr>
+            <tr>
+              <td><a href="https://qiye.gongchang.com/sitemap.xml">sitemap.xml</a></td>
+              <td>返回 404 型 HTML。</td>
+              <td>高</td>
+              <td>平台侧修复或提供可提交 sitemap；商户侧补强内链。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warning">
+        <p>
+          注意：本地命令环境无法解析外网域名，因此本报告不使用本地 curl 结果作为服务器不可达证据。robots.txt 被浏览器客户端拦截，只能记为本轮待复测项；sitemap.xml 则按浏览器导航样本记录为 404 型 HTML。
+        </p>
+      </div>
+    </div>
+
+    <div class="section" id="answer" aria-labelledby="answer-title">
+      <h2 id="answer-title">4. 答案素材准备度</h2>
+      <p class="lead">
+        GEO 不是把页面写得更长，而是把采购者会问的问题变成 AI 能直接抽取、比较和引用的答案。
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>用户问题</th>
+              <th>现有素材</th>
+              <th>缺口</th>
+              <th>应新增的答案模块</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>上海航欧是做什么的？</td>
+              <td>公司介绍写明进口机电设备、仪器仪表、疑难备品备件销售。</td>
+              <td>缺一句话定位和服务边界。</td>
+              <td>公司定位摘要：对象、产品、行业、服务模式。</td>
+            </tr>
+            <tr>
+              <td>主营产品有哪些？</td>
+              <td>首页列出传感器、缓冲器、分配器、插装阀、电子尺、测速电机。</td>
+              <td>缺同口径产品类别表。</td>
+              <td>产品类别事实表：类别、典型品牌、适用场景、详情入口。</td>
+            </tr>
+            <tr>
+              <td>是否适合进口备件询价？</td>
+              <td>公司介绍提到欧美、日本供应网络和询价渠道。</td>
+              <td>缺询价前资料清单。</td>
+              <td>询价 FAQ：品牌、型号、铭牌、数量、交期、替代型号。</td>
+            </tr>
+            <tr>
+              <td>产品详情是否可信？</td>
+              <td>详情页有价格、起订量、供货量、发货期限、更新时间。</td>
+              <td>缺资料来源和库存有效性说明。</td>
+              <td>产品来源模块：更新时间、库存/价格有效期、核验方式。</td>
+            </tr>
+            <tr>
+              <td>是否有代理或授权证据？</td>
+              <td>新闻中心有 PYROMATION、Wolftechnik、TRANSFOS MARY 等授权新闻标题。</td>
+              <td>缺授权新闻聚合和证明材料链接。</td>
+              <td>代理品牌索引：品牌、授权时间、新闻链接、适用产品。</td>
+            </tr>
+            <tr>
+              <td>怎么联系商家？</td>
+              <td>联系方式页有地址、官网、联系人、页脚电话。</td>
+              <td>联系字段分散，部分字段空白。</td>
+              <td>联系方式事实卡：电话、手机、地址、官网、在线留言。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" aria-labelledby="facts-title">
+      <h2 id="facts-title">建议新增：商铺首页最小答案层</h2>
+      <p class="lead">
+        这张表是最小有效改造。它不追求写得复杂，而是让 AI 和采购者能在一个页面里完成实体确认、产品理解和询价准备。
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>模块</th>
+              <th>字段</th>
+              <th>目的</th>
+              <th>验收</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>公司事实卡</td>
+              <td>公司名、成立年份、类型、模式、地址、官网。</td>
+              <td>让 AI 确认实体。</td>
+              <td>首页可直接复制为一句来源清晰的公司介绍。</td>
+            </tr>
+            <tr>
+              <td>产品类别表</td>
+              <td>类别、代表产品、适用行业、详情链接。</td>
+              <td>支持“卖什么”。</td>
+              <td>至少 6 个主类，每类有 2-3 个代表产品。</td>
+            </tr>
+            <tr>
+              <td>询价资料清单</td>
+              <td>品牌、型号、铭牌、数量、交期、替代需求。</td>
+              <td>支持采购转化。</td>
+              <td>FAQ 能回答询价前准备什么。</td>
+            </tr>
+            <tr>
+              <td>授权/新闻索引</td>
+              <td>品牌、年份、新闻链接、证据状态。</td>
+              <td>支持可信引用。</td>
+              <td>授权类新闻有可点击来源。</td>
+            </tr>
+            <tr>
+              <td>联系方式卡</td>
+              <td>电话、手机、地址、联系人、官网。</td>
+              <td>支持行动。</td>
+              <td>所有字段跨页面一致。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="tech" aria-labelledby="tech-title">
+      <h2 id="tech-title">5. 技术实现建议</h2>
+      <div class="risk-list">
+        <div class="risk">
+          <div><span class="tag p0">P0</span></div>
+          <div>
+            <h3>产品列表与内链兜底</h3>
+            <p>
+              优先修复 <code>/sell/</code> 的无登录可读性。若平台模板短期不可控，在首页、公司介绍页和联系方式页补“主推产品清单”，每个产品指向可读详情页，避免产品事实只散落在不可发现页面中。
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div><span class="tag p0">P0</span></div>
+          <div>
+            <h3>sitemap 与 robots 复核</h3>
+            <p>
+              sitemap.xml 应返回 XML，包含商铺首页、供应产品列表、产品详情页、公司介绍页和联系方式页；robots.txt 应明确核心页面是否允许抓取，并声明可用 sitemap 地址。
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div><span class="tag p1">P1</span></div>
+          <div>
+            <h3>canonical 与官方入口一致性</h3>
+            <p>
+              商铺首页、介绍页、联系方式页当前未观察到 canonical；抽样产品详情页 canonical 指向 <code>chanpin.gongchang.com</code> 商品页。需要确认平台 canonical 策略，并让商铺与官网的官方入口表达一致。
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div><span class="tag p1">P1</span></div>
+          <div>
+            <h3>正文先行，再补 schema</h3>
+            <p>
+              能改模板时优先补 Organization、LocalBusiness、BreadcrumbList；产品详情页再补 Product。不要把未在页面可见正文出现的授权、价格、库存和资质写进 schema。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="callout">
+        <p>
+          奥卡姆剃刀原则下，不建议先做复杂打分系统或大规模内容扩写。先把“列表页可读、首页可答、官网关系清楚、来源可回溯”这四件事做扎实，边际收益最高。
+        </p>
+      </div>
+      <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "上海航欧机电设备有限公司",
+  "url": "https://qiye.gongchang.com/shho/",
+  "telephone": "021-51085161",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "上海",
+    "streetAddress": "中江路388弄国盛中心1号楼905室"
+  }
+}</code></pre>
+    </div>
+
+    <div class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">建议新增：选型与询价 FAQ 题库</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>问题</th>
+              <th>答案应包含</th>
+              <th>来源位置</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>上海航欧主要供应哪些进口机电产品？</td>
+              <td>主营类别、代表产品、适用行业。</td>
+              <td>首页、公司介绍。</td>
+            </tr>
+            <tr>
+              <td>询价进口备件前需要准备什么？</td>
+              <td>品牌、型号、铭牌照片、数量、交期、替代型号需求。</td>
+              <td>新增 FAQ。</td>
+            </tr>
+            <tr>
+              <td>如果旧型号停产，能否找替代型号？</td>
+              <td>可说明“需按品牌、型号和参数核验”，避免承诺。</td>
+              <td>产品详情与 FAQ。</td>
+            </tr>
+            <tr>
+              <td>产品价格是否实时有效？</td>
+              <td>价格、库存和交期需以询价确认为准。</td>
+              <td>产品详情、免责声明。</td>
+            </tr>
+            <tr>
+              <td>如何判断代理或授权信息？</td>
+              <td>授权新闻、品牌、年份、证明材料链接。</td>
+              <td>新闻中心。</td>
+            </tr>
+            <tr>
+              <td>适合哪些行业采购？</td>
+              <td>冶金、钢铁、石化、能源、汽车、电厂等。</td>
+              <td>公司介绍。</td>
+            </tr>
+            <tr>
+              <td>如何联系上海航欧？</td>
+              <td>电话、手机、地址、官网、在线留言入口。</td>
+              <td>联系方式页。</td>
+            </tr>
+            <tr>
+              <td>世界工厂网商铺信息是否等于官网声明？</td>
+              <td>平台信息由会员发布，官网、合同和资质需二次核验。</td>
+              <td>平台免责声明。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" aria-labelledby="roadmap-title">
+      <h2 id="roadmap-title">一周最小闭环</h2>
+      <div class="roadmap">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>第 1 天</h3>
+          <p>确认商铺负责人、官网负责人和平台联系人；复核企业名称、电话、地址、官网、主营、认证状态是否跨页面一致。</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>第 2-3 天</h3>
+          <p>修复或绕开供应产品列表空白问题；若平台短期不能改，在首页增加“主推产品清单”和产品详情内链。</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>第 4-5 天</h3>
+          <p>上线公司事实卡、产品类别表、询价 FAQ、授权新闻索引和联系方式卡。</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h3>第 6-7 天</h3>
+          <p>用无登录浏览器、移动端和普通搜索结果复测；抽样 10 个高意图问题记录 AI 回答。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="acceptance" aria-labelledby="acceptance-title">
+      <h2 id="acceptance-title">6. 验收清单</h2>
+      <div class="checklist">
+        <div class="check">
+          <span>✓</span>
+          <div>无登录浏览器打开供应产品页可看到产品列表、分类和详情链接。</div>
+        </div>
+        <div class="check">
+          <span>✓</span>
+          <div>首页可直接回答公司是谁、卖什么、服务哪些行业、怎么询价、证据来自哪里。</div>
+        </div>
+        <div class="check">
+          <span>✓</span>
+          <div>抽样产品详情页有型号、价格/库存边界、更新时间和询价入口。</div>
+        </div>
+        <div class="check">
+          <span>✓</span>
+          <div>商铺与官网互链清晰，企业名称、官网、电话、地址和主营一致。</div>
+        </div>
+        <div class="check">
+          <span>✓</span>
+          <div>JSON-LD 字段均可从页面可见正文或官方资料回溯，不写不可证实承诺。</div>
+        </div>
+        <div class="check">
+          <span>✓</span>
+          <div>sitemap.xml 返回 XML，robots.txt 可被服务器侧复核，并声明核心发现入口。</div>
+        </div>
+        <div class="check">
+          <span>✓</span>
+          <div>高意图问题抽样时，AI 能生成不夸大的公司与产品答案。</div>
+        </div>
+        <div class="check">
+          <span>✓</span>
+          <div>AI 平台采样单独记录：平台、问题、日期、是否提及公司名、是否引用商铺或官网。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" aria-labelledby="sampling-title">
+      <h2 id="sampling-title">后续 AI 平台采样模板</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>采样问题</th>
+              <th>平台</th>
+              <th>判断项</th>
+              <th>记录方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>上海航欧机电设备有限公司是做什么的？</td>
+              <td>ChatGPT、Perplexity、豆包、DeepSeek 等。</td>
+              <td>是否提及进口机电设备、仪器仪表、疑难备品备件。</td>
+              <td>截图、答案文本、引用 URL、采样日期。</td>
+            </tr>
+            <tr>
+              <td>上海航欧主要供应哪些进口机电备件？</td>
+              <td>同上。</td>
+              <td>是否列出传感器、缓冲器、分配器、插装阀、电子尺、测速电机。</td>
+              <td>记录是否引用商铺首页、公司介绍页或产品详情页。</td>
+            </tr>
+            <tr>
+              <td>询价进口机电备件前需要准备哪些资料？</td>
+              <td>同上。</td>
+              <td>是否回答品牌、型号、铭牌、数量、交期、替代需求。</td>
+              <td>记录答案是否出现无法核验的夸大承诺。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">来源与参考</h2>
+      <ul class="source-list">
+        <li><a href="https://qiye.gongchang.com/shho/">世界工厂网企业商铺首页</a></li>
+        <li><a href="https://qiye.gongchang.com/shho/sell/">供应产品页</a></li>
+        <li><a href="https://qiye.gongchang.com/shho/sell/itemid-906526268.html">抽样产品详情页</a></li>
+        <li><a href="https://qiye.gongchang.com/shho/introduce/">公司介绍页</a></li>
+        <li><a href="https://qiye.gongchang.com/shho/contact/">联系方式页</a></li>
+        <li><a href="https://www.shhangou.com/">企业官网补充观察</a></li>
+        <li><a href="https://schema.org/Organization">Schema.org Organization</a></li>
+        <li><a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies">Google Search Central：结构化数据通用指南</a></li>
+        <li><a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">Google Search Central：JavaScript SEO 基础</a></li>
+        <li><a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing">Google Search Central：移动优先索引指南</a></li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button type="button" onclick="window.print()">打印或保存 PDF</button>
+    </div>
+
+    <div class="footer" role="contentinfo">
+      <p>
+        报告边界：本报告不判断真实排名、真实曝光、AI 答案份额或转化率。要判断这些指标，需要 Search Console、服务器日志、Lighthouse、AI 平台采样和业务转化数据。本版仅调整为中正锅炉 V2 同款视觉格式，分析事实沿用本次上海航欧商铺抽样结果。
+      </p>
+    </div>
+  </div>
+</body>
+</html>
