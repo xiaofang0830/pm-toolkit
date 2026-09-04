@@ -1,0 +1,29 @@
+{
+  "artifact": "outputs/dzemotor-gongchang-geo-delivery-report-v1.html",
+  "source": "outputs/dzemotor-gongchang-geo-delivery-report-v1.md",
+  "generated_at": "2026-09-04",
+  "target_brand": "江苏大中电机股份有限公司",
+  "target_urls": [
+    "https://qiye.gongchang.com/dzdj/",
+    "https://www.dzemotor.com/index.asp"
+  ],
+  "checks": {
+    "font_microsoft_yahei": true,
+    "self_contained_html": true,
+    "sticky_toc": true,
+    "three_owner_boundaries": true,
+    "supplier_next_actions": true,
+    "platform_operability": true,
+    "external_official_site_advice_separated": true,
+    "ai_platform_claims_avoided": true,
+    "evidence_boundary_included": true,
+    "acceptance_tests_included": true,
+    "css_avoids_rgba": true
+  },
+  "known_gaps": [
+    "未接入世界工厂网商铺后台字段",
+    "未获取平台服务器日志",
+    "未做 AI 平台批量采样",
+    "官网资质证书与客户案例需供应商确认后再作为正式交付材料"
+  ]
+}

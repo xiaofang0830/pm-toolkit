@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>江苏大中电机股份有限公司 GEO 高级 VIP 交付报告</title>
+  <style>
+    :root {
+      --paper: #f6f0e6;
+      --surface: #fffdf7;
+      --surface-2: #fbf6ec;
+      --ink: #17253b;
+      --muted: #667085;
+      --line: #ded4c4;
+      --line-strong: #c9b9a4;
+      --blue: #1d4f91;
+      --blue-deep: #123764;
+      --teal: #0f766e;
+      --green: #237a57;
+      --amber: #b7791f;
+      --red: #b5473f;
+      --chip: #eef5f3;
+      --shadow: 0 22px 50px #d9cbbb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      font-weight: 700;
+      color: var(--blue-deep);
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--blue-deep);
+      display: grid;
+      place-items: center;
+      color: var(--surface);
+      font-size: 14px;
+    }
+
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .topnav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--surface-2);
+      font-size: 13px;
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 42px 22px 26px;
+    }
+
+    .hero-shell {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+      gap: 26px;
+      padding: 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .eyebrow:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: 38px;
+      line-height: 1.22;
+      letter-spacing: 0;
+      color: var(--blue-deep);
+    }
+
+    .hero-lead {
+      margin: 18px 0 0;
+      max-width: 820px;
+      font-size: 17px;
+      color: #344054;
+    }
+
+    .meta-panel {
+      align-self: stretch;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .meta-panel h2 {
+      margin: 0 0 12px;
+      font-size: 17px;
+      color: var(--blue-deep);
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 12px;
+      padding: 9px 0;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .meta-row:first-of-type {
+      border-top: none;
+    }
+
+    .meta-row b {
+      color: #475467;
+    }
+
+    .hero-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      background: var(--blue-deep);
+      color: var(--surface);
+    }
+
+    .strip-item {
+      padding: 18px 20px;
+      border-right: 1px solid #34577f;
+    }
+
+    .strip-item:last-child {
+      border-right: none;
+    }
+
+    .strip-label {
+      color: #c9d7e8;
+      font-size: 12px;
+    }
+
+    .strip-value {
+      margin-top: 4px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 244px minmax(0, 1fr);
+      gap: 22px;
+      padding: 0 22px 48px;
+    }
+
+    aside {
+      align-self: start;
+      position: sticky;
+      top: 78px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 14px;
+    }
+
+    aside h2 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: var(--blue-deep);
+    }
+
+    aside a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      color: #344054;
+      font-size: 13px;
+    }
+
+    aside a:hover {
+      background: var(--chip);
+      text-decoration: none;
+      color: var(--teal);
+    }
+
+    main {
+      display: grid;
+      gap: 20px;
+    }
+
+    section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 26px;
+    }
+
+    section h2 {
+      margin: 0 0 14px;
+      color: var(--blue-deep);
+      font-size: 24px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    section h3 {
+      margin: 22px 0 10px;
+      font-size: 18px;
+      color: #1f3b5f;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .decision {
+      padding: 20px;
+      border-left: 5px solid var(--teal);
+      background: #eff8f6;
+      border-radius: 8px;
+      font-size: 17px;
+      color: #213547;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid #cde3df;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-2);
+      padding: 18px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #edf2f7;
+      color: #344054;
+    }
+
+    .tag.hot {
+      background: #fce9e7;
+      color: var(--red);
+    }
+
+    .tag.work {
+      background: #e8f5f2;
+      color: var(--teal);
+    }
+
+    .tag.wait {
+      background: #fbf2d9;
+      color: var(--amber);
+    }
+
+    .owner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .owner-card {
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--surface-2);
+      padding: 18px;
+      min-height: 260px;
+    }
+
+    .owner-card.platform {
+      border-top: 5px solid var(--teal);
+    }
+
+    .owner-card.supplier {
+      border-top: 5px solid var(--amber);
+    }
+
+    .owner-card.official {
+      border-top: 5px solid var(--blue);
+    }
+
+    .owner-card h3 {
+      margin-top: 0;
+      color: var(--blue-deep);
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 4px;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eef1f5;
+      color: var(--blue-deep);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background: #fffaf0;
+    }
+
+    .step-list {
+      counter-reset: step;
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .step:before {
+      content: counter(step);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue-deep);
+      color: var(--surface);
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+
+    .sample {
+      border: 1px solid #b9d6d1;
+      background: #f0faf8;
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .sample h3 {
+      margin-top: 0;
+      color: var(--teal);
+    }
+
+    .footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px 44px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .source-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .source-list a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-2);
+      padding: 10px 12px;
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 980px) {
+      .hero-main,
+      .layout,
+      .owner-grid,
+      .grid-3,
+      .grid-2,
+      .hero-strip,
+      .source-list {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .topnav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .hero-main,
+      section {
+        padding: 20px;
+      }
+
+      .strip-item {
+        border-right: none;
+        border-bottom: 1px solid #34577f;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">GEO</span>
+        <span>高级 VIP 交付报告</span>
+      </div>
+      <nav class="topnav" aria-label="报告导航">
+        <a href="#summary">结论</a>
+        <a href="#boundary">责任边界</a>
+        <a href="#evidence">证据</a>
+        <a href="#deliverables">交付方案</a>
+        <a href="#tasks">任务清单</a>
+        <a href="#acceptance">验收</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-shell">
+      <div class="hero-main">
+        <div>
+          <div class="eyebrow">基于页面 GEO 诊断方法论、奥卡姆剃刀与第一性原理</div>
+          <h1>江苏大中电机股份有限公司 GEO 高级 VIP 交付报告</h1>
+          <p class="hero-lead">这份报告不把问题停留在 canonical、JSON-LD、sitemap 等技术名词上，而是拆成供应商今天要补什么、平台能代办什么、官网外部建议什么。</p>
+          <div class="pill-row">
+            <span class="pill">工厂网商铺</span>
+            <span class="pill">企业官网</span>
+            <span class="pill">采购答案层</span>
+            <span class="pill">产品参数层</span>
+            <span class="pill">高级 VIP 交付</span>
+          </div>
+        </div>
+        <div class="meta-panel">
+          <h2>报告对象</h2>
+          <div class="meta-row"><b>企业</b><span>江苏大中电机股份有限公司</span></div>
+          <div class="meta-row"><b>商铺</b><span><a href="https://qiye.gongchang.com/dzdj/">qiye.gongchang.com/dzdj</a></span></div>
+          <div class="meta-row"><b>官网</b><span><a href="https://www.dzemotor.com/index.asp">www.dzemotor.com</a></span></div>
+          <div class="meta-row"><b>日期</b><span>2026-09-04</span></div>
+          <div class="meta-row"><b>用途</b><span>供应商交付、销售讲解、运营落地、产品化复用</span></div>
+        </div>
+      </div>
+      <div class="hero-strip">
+        <div class="strip-item">
+          <div class="strip-label">一句话判断</div>
+          <div class="strip-value">不是没内容，是没答案层</div>
+        </div>
+        <div class="strip-item">
+          <div class="strip-label">平台优先</div>
+          <div class="strip-value">商铺模板和产品参数层</div>
+        </div>
+        <div class="strip-item">
+          <div class="strip-label">供应商优先</div>
+          <div class="strip-value">资质、案例、询价规则</div>
+        </div>
+        <div class="strip-item">
+          <div class="strip-label">外部建议</div>
+          <div class="strip-value">官网 sitemap 与结构化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <h2>目录</h2>
+      <a href="#summary">1. 一句话结论</a>
+      <a href="#three-things">2. 先做三件事</a>
+      <a href="#boundary">3. 三栏责任边界</a>
+      <a href="#evidence">4. 证据摘要</a>
+      <a href="#readiness">5. GEO 准备度</a>
+      <a href="#deliverables">6. 推荐交付方案</a>
+      <a href="#sample-copy">7. 可上线答案文案</a>
+      <a href="#tasks">8. 任务清单</a>
+      <a href="#official-advice">9. 官网外部建议</a>
+      <a href="#loop">10. 一周闭环</a>
+      <a href="#acceptance">11. 验收清单</a>
+      <a href="#sources">12. 来源与边界</a>
+    </aside>
+
+    <main>
+      <section id="summary">
+        <h2>一句话结论</h2>
+        <div class="decision">江苏大中电机的官网已有较强的企业可信素材，工厂网商铺也具备主营产品、联系方式、供应信息和部分产品参数；当前 GEO 的真正瓶颈不是“没有内容”，而是商铺还停留在信息陈列，没有被整理成 AI 和采购者能直接理解、信任、引用的 B2B 采购答案页。</div>
+        <p>换成供应商能听懂的话：现在页面像“资料柜”，下一步要做成“采购顾问卡”。采购者打开后要马上知道这家公司做什么、适合采购什么、凭什么可信、询价要给哪些参数、找谁对接。</p>
+      </section>
+
+      <section id="three-things">
+        <h2>先给供应商看的三件事</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3><span class="tag hot">今天先做</span>补全采购决策信息</h3>
+            <p>主营产品收敛为 6-8 个核心系列，并补齐每类产品的型号、功率、电压、防爆/能效、适用行业、起订量、交期、认证。</p>
+          </div>
+          <div class="card">
+            <h3><span class="tag work">建立信任</span>补全可信证据</h3>
+            <p>营业执照已认证之外，补充资质证书、重点客户、应用行业、服务承诺、售后响应、企业规模等能被采购者验证的事实。</p>
+          </div>
+          <div class="card">
+            <h3><span class="tag wait">降低误差</span>补全询价规则</h3>
+            <p>告诉采购者询价时要提供哪些参数：使用场景、功率、电压、极数、防爆等级、安装方式、数量、交期和是否定制。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="boundary">
+        <h2>三栏责任边界</h2>
+        <p class="note">这是高级 VIP 套餐最重要的产品化边界：哪些平台可代办，哪些供应商必须补，哪些只能作为官网顾问建议。</p>
+        <div class="owner-grid">
+          <div class="owner-card platform">
+            <h3>平台可代办</h3>
+            <ul>
+              <li>商铺首页 20% 摘要答案层</li>
+              <li>独立企业采购档案页</li>
+              <li>产品详情页采购参数层</li>
+              <li>FAQ、产品分类、内链、询价入口</li>
+              <li>商铺模板标题、摘要、字段规范</li>
+              <li>结构化模块与可见事实一致性校验</li>
+            </ul>
+          </div>
+          <div class="owner-card supplier">
+            <h3>供应商需补充</h3>
+            <ul>
+              <li>资质证书、产品认证、授权证明</li>
+              <li>主营产品系列的取舍与排序</li>
+              <li>品牌型号、参数范围、定制边界</li>
+              <li>客户案例、应用场景、项目证据</li>
+              <li>交期、起订量、报价规则、售后承诺</li>
+              <li>企业创建时间、注册年份等事实确认</li>
+            </ul>
+          </div>
+          <div class="owner-card official">
+            <h3>官网外部建议</h3>
+            <ul>
+              <li>robots、sitemap、canonical</li>
+              <li>官网首页 H1、main、article 结构</li>
+              <li>官网产品页 JSON-LD</li>
+              <li>官网资质页、案例页、新闻页内容结构</li>
+              <li>官网移动端与性能优化</li>
+              <li>官网内容只能建议或顾问服务，不能算平台代办</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence">
+        <h2>证据摘要</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>证据项</th>
+              <th>观察</th>
+              <th>结论</th>
+              <th>不能推断</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>商铺浏览器可见</td>
+              <td>可见企业名、VIP 会员、第 1 年、经营模式、营业执照已认证、主营产品、地址、联系方式、推荐产品、最新供应。</td>
+              <td>用户可读内容较多，可作为答案层底料。</td>
+              <td>不能直接证明 AI 平台会稳定抓取。</td>
+            </tr>
+            <tr>
+              <td>商铺非浏览器抓取</td>
+              <td>命令行请求返回 403 验证页，验证页带 noindex,nofollow。</td>
+              <td>平台需确认搜索/AI bot 是否拿到真实正文。</td>
+              <td>不能断言真实搜索收录全部受阻。</td>
+            </tr>
+            <tr>
+              <td>商铺首页结构</td>
+              <td>H1 为企业名，无 main/article，无 JSON-LD，无 canonical。</td>
+              <td>信息能看，但机器理解与引用稳定性不足。</td>
+              <td>不能说明模板无法改造。</td>
+            </tr>
+            <tr>
+              <td>商铺产品详情</td>
+              <td>YE5 产品页可见品牌、价格、起订量、供货量、发货期限、更新时间、型号、极数、功率、电压、转速、CCC、应用范围。</td>
+              <td>已有采购参数雏形，适合产品化为标准参数层。</td>
+              <td>不能代表全部产品页都完整。</td>
+            </tr>
+            <tr>
+              <td>官网首页</td>
+              <td>HTTP 200；title/meta 完整；robots.txt 允许抓取；sitemap.xml 返回 404。</td>
+              <td>官网有基本发现入口，但站点地图缺失。</td>
+              <td>不能推断官网真实收录或 AI 引用情况。</td>
+            </tr>
+            <tr>
+              <td>官网内容</td>
+              <td>公司介绍页含创建时间、注册资本、员工、产能、认证、专利、应用行业、客户等事实。</td>
+              <td>官网是可信素材库，适合反哺商铺采购档案。</td>
+              <td>需供应商确认事实更新状态。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="readiness">
+        <h2>当前页面的 GEO 准备度</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>能力</th>
+              <th>当前判断</th>
+              <th>主要原因</th>
+              <th>优先动作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>能被找到</td>
+              <td><span class="tag wait">中等偏低</span></td>
+              <td>商铺浏览器可见，但非浏览器抓取出现验证页；官网 sitemap 缺失。</td>
+              <td>平台确认商铺真实正文对搜索/AI 抓取开放；官网补 sitemap。</td>
+            </tr>
+            <tr>
+              <td>能被理解</td>
+              <td><span class="tag wait">中等</span></td>
+              <td>商铺和官网有大量信息，但首页缺摘要答案层，产品信息分散。</td>
+              <td>平台增加 20% 摘要答案层和采购档案页。</td>
+            </tr>
+            <tr>
+              <td>能被信任</td>
+              <td><span class="tag work">中等偏高</span></td>
+              <td>官网有较多认证、规模、客户、专利、服务承诺；商铺只展示营业执照认证。</td>
+              <td>将官网可信事实迁移到商铺档案，标明来源和更新时间。</td>
+            </tr>
+            <tr>
+              <td>能被引用</td>
+              <td><span class="tag wait">中等偏低</span></td>
+              <td>缺 FAQ、参数表、事实来源、更新日期、结构化模块。</td>
+              <td>生成可引用的企业问答、采购参数表、证据块。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="deliverables">
+        <h2>推荐交付方案</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>交付一：首页 20% 摘要答案层</h3>
+            <p>放在商铺首页首屏或企业基础信息下方，目标是让采购者和 AI 先得到最短答案。</p>
+            <ul>
+              <li>企业一句话</li>
+              <li>主营产品卡</li>
+              <li>适用行业</li>
+              <li>可信背书</li>
+              <li>询价提醒</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>交付二：100% 企业采购档案页</h3>
+            <p>新增独立页面，前台命名建议用“企业采购档案”或“采购指南”，不要叫“AI 页面”。</p>
+            <ul>
+              <li>企业基础档案</li>
+              <li>核心产品能力</li>
+              <li>资质与可信证据</li>
+              <li>采购适配场景</li>
+              <li>信息来源与更新时间</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>交付三：产品详情采购参数层</h3>
+            <p>以 YE5 产品页为样本，当前已有较多字段，适合产品化为统一的采购参数模板。</p>
+            <ul>
+              <li>基础识别</li>
+              <li>电气参数</li>
+              <li>应用边界</li>
+              <li>采购条件</li>
+              <li>可信证据</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>产品详情页字段标准</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>字段组</th>
+              <th>必填字段</th>
+              <th>本案例已有</th>
+              <th>还需补充</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>基础识别</td>
+              <td>产品系列、型号、品牌、产品类型</td>
+              <td>已有</td>
+              <td>型号命名规则</td>
+            </tr>
+            <tr>
+              <td>电气参数</td>
+              <td>功率、电压、极数、转速、能效等级</td>
+              <td>部分已有</td>
+              <td>频率、效率值、绝缘等级</td>
+            </tr>
+            <tr>
+              <td>应用边界</td>
+              <td>适用行业、适用设备、环境要求</td>
+              <td>部分已有</td>
+              <td>禁用场景、选型注意事项</td>
+            </tr>
+            <tr>
+              <td>采购条件</td>
+              <td>单价、起订量、供货量、交期</td>
+              <td>已有</td>
+              <td>是否含税运、定制周期</td>
+            </tr>
+            <tr>
+              <td>可信证据</td>
+              <td>产品认证、证书编号、检测依据</td>
+              <td>部分已有</td>
+              <td>证书图片、有效期、标准链接</td>
+            </tr>
+            <tr>
+              <td>询价动作</td>
+              <td>询价按钮、微信客服、参数表单</td>
+              <td>部分已有</td>
+              <td>询价参数表单</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="sample-copy">
+        <h2>可上线答案文案样例</h2>
+        <div class="sample">
+          <h3>首页 20% 摘要答案层</h3>
+          <p><strong>江苏大中电机股份有限公司</strong>主营高效率节能型高低压电机、高效隔爆电机、特种电机、永磁电机、新能源电机等产品，可用于电站、冶金、煤矿、机械、石油、化工、船舶、交通、水利、水泥、造纸、环保等采购场景。</p>
+          <p>在世界工厂网商铺中，采购者可查看 YE5 一级能效电机、YE4 二级能效电机、YBX/YBE 防爆电机、YBBP 防爆变频电机、Y2VP 变频电机、YKK 高压电机、Y-H 船用电机、Z4 直流电机等产品信息，并通过联系人或询价入口提交采购需求。</p>
+          <p class="note">上线前需供应商确认：企业创建时间、注册年份、资质证书、客户案例和服务承诺是否为最新版本。</p>
+        </div>
+
+        <h3>采购者 FAQ 样例</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>采购者问题</th>
+              <th>建议答案模块</th>
+              <th>需要供应商确认</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>江苏大中电机主要做什么？</td>
+              <td>从事电动机研发、设计、制造、销售和服务，主营高低压电机、防爆电机、永磁电机、特种电机等。</td>
+              <td>主营排序和品牌简称。</td>
+            </tr>
+            <tr>
+              <td>采购 YE5 电机要提供哪些参数？</td>
+              <td>型号、功率、电压、极数、转速、安装方式、应用场景、数量、交期、是否需要定制。</td>
+              <td>是否还需频率、绝缘等级、防护等级等必填项。</td>
+            </tr>
+            <tr>
+              <td>是否有防爆电机？</td>
+              <td>商铺主营和产品分类包含 YBE4、YBX3、YBX5、YBBP 等防爆相关系列。</td>
+              <td>对应证书、适用防爆等级、证书有效期。</td>
+            </tr>
+            <tr>
+              <td>适合哪些行业采购？</td>
+              <td>官网披露应用于电站、冶金、煤矿、机械、石油、化工、船舶、交通、水利、水泥、造纸、环保等领域。</td>
+              <td>重点行业优先级和案例授权。</td>
+            </tr>
+            <tr>
+              <td>多久能发货？</td>
+              <td>样本产品页显示发货期限为买家付款后 20 天内发货。</td>
+              <td>不同产品、定制产品、批量采购的交期规则。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="tasks">
+        <h2>任务清单</h2>
+        <h3>供应商任务</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>今天要补什么</th>
+              <th>为什么要补</th>
+              <th>填写建议</th>
+              <th>验收方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>主营产品收敛</td>
+              <td>主营太长，AI 不容易判断核心业务。</td>
+              <td>选 6-8 个主推系列，其余放二级分类。</td>
+              <td>首页摘要层能在 5 秒内读懂主营。</td>
+            </tr>
+            <tr>
+              <td>资质证书</td>
+              <td>采购者需要判断是否可信。</td>
+              <td>上传 ISO、CCC、CQC、防爆、船级社、节能等证书。</td>
+              <td>每个证书有名称、图片、有效期、适用产品。</td>
+            </tr>
+            <tr>
+              <td>应用案例</td>
+              <td>“适用于行业”不足以建立信任。</td>
+              <td>每个重点行业至少 1 个案例。</td>
+              <td>案例含行业、产品系列、采购目的、结果。</td>
+            </tr>
+            <tr>
+              <td>询价规则</td>
+              <td>降低无效询盘。</td>
+              <td>明确询价需提供型号、功率、电压、极数、数量、场景。</td>
+              <td>产品页出现参数化询价表。</td>
+            </tr>
+            <tr>
+              <td>企业事实一致性</td>
+              <td>官网创建 1958，商铺注册年份 1968，容易被误读。</td>
+              <td>区分“企业创建时间”和“平台/工商注册年份”。</td>
+              <td>商铺与官网表述不冲突。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>平台任务</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>平台能做什么</th>
+              <th>页面位置</th>
+              <th>交付动作</th>
+              <th>验收方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>摘要答案层</td>
+              <td>商铺首页</td>
+              <td>生成企业一句话、主营产品、采购参数、可信证据、询价提醒。</td>
+              <td>页面首屏出现可直接引用的答案块。</td>
+            </tr>
+            <tr>
+              <td>采购档案页</td>
+              <td>商铺新增页</td>
+              <td>建立结构化企业档案、资质、案例、FAQ、来源说明。</td>
+              <td>页面 URL 稳定，可被内链访问。</td>
+            </tr>
+            <tr>
+              <td>产品参数层</td>
+              <td>产品详情页</td>
+              <td>增加标准参数表、认证证据、选型 FAQ、询价表单。</td>
+              <td>任一产品页能回答“怎么选、怎么买、要提供什么”。</td>
+            </tr>
+            <tr>
+              <td>内链与聚合</td>
+              <td>商铺模板</td>
+              <td>首页链向产品系列、采购档案、资质、案例、FAQ。</td>
+              <td>采购者 2 次点击内到达关键内容。</td>
+            </tr>
+            <tr>
+              <td>抓取友好</td>
+              <td>平台技术</td>
+              <td>确认搜索/AI 抓取拿到真实正文，验证页不替代正文。</td>
+              <td>用非登录、无 Cookie、常见 bot UA 复测。</td>
+            </tr>
+            <tr>
+              <td>结构化输出</td>
+              <td>平台技术</td>
+              <td>对可见事实生成 Organization、Product、FAQPage 等结构化数据。</td>
+              <td>结构化数据与页面可见事实一致。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="official-advice">
+        <h2>官网外部建议</h2>
+        <p>这些不是平台可直接代办的商铺改造项，只能作为建议或顾问服务输出。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>建议</th>
+              <th>当前证据</th>
+              <th>对 GEO 的影响</th>
+              <th>交付方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>补 sitemap.xml</td>
+              <td>官网 sitemap.xml 返回 404。</td>
+              <td>降低发现效率。</td>
+              <td>提供技术建议单。</td>
+            </tr>
+            <tr>
+              <td>增加 canonical</td>
+              <td>官网首页未发现 canonical。</td>
+              <td>降低 URL 归一稳定性。</td>
+              <td>提供页面规范建议。</td>
+            </tr>
+            <tr>
+              <td>优化首页结构</td>
+              <td>官网首页未发现 H1/main/article。</td>
+              <td>主体内容提取不稳定。</td>
+              <td>提供官网改版建议。</td>
+            </tr>
+            <tr>
+              <td>增加 JSON-LD</td>
+              <td>官网首页未发现结构化数据。</td>
+              <td>机器理解企业与产品关系较弱。</td>
+              <td>提供结构化数据样例。</td>
+            </tr>
+            <tr>
+              <td>提炼采购内容</td>
+              <td>官网内容偏官网展示，缺采购 FAQ。</td>
+              <td>高意图问题回答不直接。</td>
+              <td>输出官网内容模块建议。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="loop">
+        <h2>一周最小闭环</h2>
+        <div class="step-list">
+          <div class="step">
+            <div>
+              <h3>第 1 天：确认事实</h3>
+              <p>对齐企业名、创建时间、注册年份、品牌、地址、联系方式、主营系列，产出企业事实确认表。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第 2 天：补供应商材料</h3>
+              <p>收集资质、认证、客户、案例、售后承诺、交期规则，形成供应商素材包。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第 3 天：生成答案层</h3>
+              <p>平台生成首页 20% 摘要答案层和采购 FAQ，先给销售和供应商确认。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第 4 天：生成采购档案</h3>
+              <p>平台生成独立企业采购档案页，集中承接资质、产品能力、案例和来源说明。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第 5 天：改产品详情</h3>
+              <p>选 3 个代表产品补参数层，形成能复制到其他产品页的样板。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第 6 天：技术复检</h3>
+              <p>检查抓取、标题、内链、结构化、移动端展示，输出复检清单。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第 7 天：交付复盘</h3>
+              <p>用高意图问题测试答案可读性，交付最终报告和下一轮优化任务。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="acceptance">
+        <h2>验收清单</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>可以承诺</h3>
+            <ul>
+              <li>采购者能在商铺首页 5 秒内看懂企业主营和适用场景。</li>
+              <li>采购者能在 2 次点击内看到资质、产品系列、联系方式、询价规则。</li>
+              <li>产品详情页至少有 12 个采购字段。</li>
+              <li>每个可信声明都有来源：商铺认证、供应商上传、官网页面或证书文件。</li>
+              <li>结构化数据只引用页面可见事实，不凭空添加企业荣誉或产品认证。</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>不能承诺</h3>
+            <ul>
+              <li>不能承诺 AI 平台排名。</li>
+              <li>不能承诺 AI 回答一定引用工厂网商铺。</li>
+              <li>不能在没有采样数据时宣称曝光提升。</li>
+              <li>不能替供应商伪造资质、案例、认证或客户关系。</li>
+              <li>不能把官网技术改造算作平台商铺代办成果。</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>上线后 AI 平台采样问题</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>采样问题</th>
+              <th>预期验证点</th>
+              <th>记录字段</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>江苏大中电机股份有限公司主要生产什么？</td>
+              <td>企业定位与主营产品是否准确。</td>
+              <td>是否提到企业、是否引用商铺/官网、是否有错误。</td>
+            </tr>
+            <tr>
+              <td>采购 YE5 一级能效电机需要提供哪些参数？</td>
+              <td>是否能回答型号、功率、电压、极数、数量、交期。</td>
+              <td>答案完整度、引用来源、缺失字段。</td>
+            </tr>
+            <tr>
+              <td>江苏大中电机是否有防爆电机产品？</td>
+              <td>是否识别 YBE/YBX/YBBP 等系列和防爆场景。</td>
+              <td>系列准确性、认证提及是否有依据。</td>
+            </tr>
+            <tr>
+              <td>在世界工厂网上如何联系江苏大中电机询价？</td>
+              <td>是否能找到商铺联系方式和询价入口。</td>
+              <td>是否引用工厂网商铺、联系方式准确性。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="sources">
+        <h2>来源与边界</h2>
+        <div class="source-list">
+          <a href="https://qiye.gongchang.com/dzdj/">世界工厂网商铺</a>
+          <a href="https://qiye.gongchang.com/dzdj/sell/itemid-906630350.html">商铺产品页样本</a>
+          <a href="https://www.dzemotor.com/index.asp">企业官网</a>
+          <a href="https://www.dzemotor.com/index/about.html">官网公司介绍</a>
+          <a href="https://www.dzemotor.com/index/product/detail/16.html">官网产品页样本</a>
+          <a href="https://www.dzemotor.com/robots.txt">官网 robots.txt</a>
+          <a href="https://www.dzemotor.com/sitemap.xml">官网 sitemap.xml</a>
+        </div>
+        <p class="note">本报告基于公开页面与实时访问观察，不包含平台服务器日志、商铺后台字段、真实搜索收录数据和 AI 平台采样数据。未执行百度、Google、DeepSeek、豆包、Kimi、元宝等 AI 平台批量采样，因此不评价召回率、排名、引用份额。</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>报告生成：世界工厂网 GEO 高级 VIP 服务包装参考稿。核心原则：先让供应商看懂下一步，再让平台知道自己能改哪里，最后才把官网技术建议作为外部服务承接。</p>
+  </footer>
+</body>
+</html>
