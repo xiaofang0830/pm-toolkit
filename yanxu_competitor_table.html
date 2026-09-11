@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>言序 ChatFlow 竞品表</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --panel: #ffffff;
+      --text: #18202a;
+      --muted: #5d6878;
+      --line: #dce2ea;
+      --head: #eef4f8;
+      --accent: #0f766e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1440px, calc(100% - 40px));
+      margin: 32px auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    .note {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(24, 32, 42, 0.06);
+    }
+
+    table {
+      width: 100%;
+      min-width: 1180px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--head);
+      color: #26313d;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fbfcfd;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 620;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .product {
+      font-weight: 700;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      main {
+        width: 100%;
+        margin: 0;
+      }
+
+      .table-wrap {
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>言序 ChatFlow 竞品表</h1>
+    <p class="note">更新时间：2026-09-10。价格以竞品公开官网或公开价格页为主；国内厂商大量采用商务报价，表中已标注“需咨询”或“公开口径”。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 9%;">竞品</th>
+            <th style="width: 10%;">母公司/品牌方</th>
+            <th style="width: 12%;">官网链接</th>
+            <th style="width: 18%;">产品特点</th>
+            <th style="width: 15%;">优势</th>
+            <th style="width: 15%;">劣势</th>
+            <th style="width: 21%;">公开价格/报价口径</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="product">Udesk</td>
+            <td>沃丰科技</td>
+            <td><a href="https://www.udesk.cn/feature_udesk.html">官网</a> / <a href="https://www.udeskglobal.com/">国际站</a></td>
+            <td>全渠道客服、呼叫中心、工单、AI Chatbot、WhatsApp、海外渠道</td>
+            <td>企业级能力完整，渠道覆盖广，出海客服经验强</td>
+            <td>产品偏重，销售/实施链路较长</td>
+            <td>国际站公开 $765-$1118/坐席/年起；见 <a href="https://www.udeskglobal.com/pricing">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">智齿科技 Sobot</td>
+            <td>北京智齿博创科技</td>
+            <td><a href="https://www.zhichi.com/ai/">官网</a></td>
+            <td>AI Agent、在线/语音 Agent、Nexus 全渠道、WhatsApp</td>
+            <td>AI Agent 叙事强，客服、工单、呼叫中心一体化</td>
+            <td>报价不透明，中大型项目属性明显</td>
+            <td>15 天免费试用，正式报价需咨询；见 <a href="https://www.zhichi.com/agents/">Agent 产品页</a></td>
+          </tr>
+          <tr>
+            <td class="product">美洽</td>
+            <td>成都美洽网络科技</td>
+            <td><a href="https://www.meiqia.im/">官网</a></td>
+            <td>在线客服、AI 获客机器人、客服机器人、Email、微信、抖音等渠道</td>
+            <td>国内在线客服认知高，获客转化场景成熟</td>
+            <td>WhatsApp、外贸 CRM 续接不是核心差异</td>
+            <td>官网以预约演示/免费试用为主；见 <a href="https://www.meiqia.com/chatbot">客服机器人页</a></td>
+          </tr>
+          <tr>
+            <td class="product">网易七鱼</td>
+            <td>杭州网易质云科技</td>
+            <td><a href="https://serve7.aiconn.com/">官网</a></td>
+            <td>在线客服、在线机器人、呼叫中心、工单、质检</td>
+            <td>网易背书，客服体系完整，适合大型服务团队</td>
+            <td>价格不透明，偏传统客服平台</td>
+            <td>机器人基础包公开为 20 万会话，但需咨询购买；见 <a href="https://serve7.aiconn.com/price/robot">机器人价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">腾讯云云联络中心/客服大模型机器人</td>
+            <td>腾讯云</td>
+            <td><a href="https://intl.cloud.tencent.com/zh/products/ccc">云联络中心</a> / <a href="https://cloud.tencent.com/product/cslr">客服大模型机器人</a></td>
+            <td>在线会话、智能体机器人、任务流、企业微信、官网等接入</td>
+            <td>云厂商底座强，价格透明，安全合规强</td>
+            <td>更像基础设施，需要行业配置和运营</td>
+            <td>在线会话标准版国内约 ¥1000/月，高级版约 ¥3000/月，旗舰版约 ¥15000/月；智能体消息包约 ¥3000/年/10 万条；见 <a href="https://cloud.tencent.cn/document/product/679/116646">计费说明</a></td>
+          </tr>
+          <tr>
+            <td class="product">小能科技</td>
+            <td>北京能通天下网络技术</td>
+            <td><a href="https://www.xiaoneng.cn/">官网</a></td>
+            <td>在线客服、智能客服、工单、呼叫中心</td>
+            <td>老牌客服系统，行业覆盖较广</td>
+            <td>AI Agent 与外贸多语种能力需验证</td>
+            <td>百度 AI 市场公开口径：公有云约 ¥30,000/次，私有云约 ¥180,000/次；见 <a href="https://aim.baidu.com/product/c037814b-84da-43b5-a4f7-9ae2af950c7e">百度 AI 市场页</a></td>
+          </tr>
+          <tr>
+            <td class="product">Intercom Fin</td>
+            <td>Intercom</td>
+            <td><a href="https://www.intercom.com/ai-chatbot">官网</a></td>
+            <td>Fin AI Agent、Helpdesk、聊天、邮件、工作流</td>
+            <td>海外 AI 客服标杆，体验和产品化强</td>
+            <td>美元计费，本地交付/私有化弱</td>
+            <td>席位 $29/月起，Fin $0.99/outcome，线索 qualification $9.99；见 <a href="https://www.intercom.com/pricing?tab=1">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">Zendesk AI Agents</td>
+            <td>Zendesk</td>
+            <td><a href="https://www.zendesk.com/pricing/">官网</a></td>
+            <td>工单、知识库、AI Agents、Action Builder</td>
+            <td>全球客服工单标准平台，流程和生态强</td>
+            <td>总成本高，偏售后支持，不专注外贸询盘</td>
+            <td>Support Team $19/agent/月，Suite Team $55/agent/月，AI 按 automated resolution 计费；见 <a href="https://www.zendesk.com/pricing/">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">Freshdesk / Freddy AI</td>
+            <td>Freshworks</td>
+            <td><a href="https://www.freshworks.com/freshdesk/">官网</a></td>
+            <td>工单、Omni 客服、Freddy AI Agent、Freddy Copilot</td>
+            <td>价格较 Zendesk 友好，支持中小团队扩展</td>
+            <td>中国本地交付弱，复杂集成仍需实施</td>
+            <td>Growth $19/agent/月，Pro $55/agent/月，Enterprise $89/agent/月；AI Agent $49/100 sessions；见 <a href="https://www.freshworks.com/freshdesk/pricing/">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">HubSpot Breeze Customer Agent</td>
+            <td>HubSpot</td>
+            <td><a href="https://www.hubspot.com/products/artificial-intelligence/ai-customer-service-agent">官网</a></td>
+            <td>CRM 原生客服 Agent、线索判断、知识库</td>
+            <td>CRM、营销、销售、客服一体化强</td>
+            <td>绑定 HubSpot 生态，起步成本高</td>
+            <td>Customer Agent 50 credits/次 resolved conversation，Service Hub Pro $90/seat/月、Enterprise $150/seat/月；见 <a href="https://www.hubspot.com/pricing/service">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">Salesforce Agentforce</td>
+            <td>Salesforce</td>
+            <td><a href="https://www.salesforce.com/agentforce/pricing/">官网</a></td>
+            <td>企业级 Agent、CRM 流程、Service/Sales 场景</td>
+            <td>大客户生态、权限、流程、数据能力极强</td>
+            <td>对中小外贸工厂过重，实施贵且慢</td>
+            <td>Flex Credits $500/10 万 credits，约 $0.10/action；或 $2/conversation；见 <a href="https://www.salesforce.com/agentforce/pricing/">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">Tidio Lyro</td>
+            <td>Tidio</td>
+            <td><a href="https://www.tidio.com/pricing/">官网</a></td>
+            <td>Live chat、Ticketing、Lyro AI Agent</td>
+            <td>轻量、便宜，适合独立站/中小电商</td>
+            <td>私有化、复杂 CRM、制造业方案弱</td>
+            <td>Starter $24.17/月起，Lyro AI Agent $32.50/月起；见 <a href="https://www.tidio.com/pricing/">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">Crisp</td>
+            <td>Crisp IM SAS</td>
+            <td><a href="https://crisp.chat/en/pricing/">官网</a></td>
+            <td>网站聊天、共享收件箱、WhatsApp、Instagram、SMS、Line、AI Agent</td>
+            <td>固定 workspace 价格，预算清晰</td>
+            <td>AI/流程深度有限，大客户能力弱</td>
+            <td>Free；Mini $45/月，Essentials $95/月，Plus $295/月；见 <a href="https://crisp.chat/en/pricing/">价格页</a></td>
+          </tr>
+          <tr>
+            <td class="product">Gorgias AI Agent</td>
+            <td>Gorgias</td>
+            <td><a href="https://www.gorgias.com/">官网</a></td>
+            <td>Shopify 电商客服、订单、退货、物流自动化</td>
+            <td>电商场景极强，自动处理交易类问题</td>
+            <td>偏 B2C 电商，不适合 B2B 工业询盘</td>
+            <td>多数方案约 $0.90/resolved interaction，Starter 约 $1；见 <a href="https://www.gorgias.com/blog/ai-agent-pricing">价格说明</a></td>
+          </tr>
+          <tr>
+            <td class="product">Botpress</td>
+            <td>Botpress</td>
+            <td><a href="https://botpress.com/en/pricing">官网</a></td>
+            <td>AI Agent 构建平台、知识库、API、Webchat</td>
+            <td>灵活，可自建行业 Agent</td>
+            <td>不是开箱即用客服系统，需要技术团队</td>
+            <td>PAYG $0 + AI Spend；Plus $89/月，Team $495/月，Managed $995/月起；见 <a href="https://botpress.com/en/pricing">价格页</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
