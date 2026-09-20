@@ -1,0 +1,2061 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>广州佰旺升降机械 VIP 商铺视觉优化原型</title>
+  <style>
+    :root {
+      --ink: #182538;
+      --ink-2: #344054;
+      --muted: #667085;
+      --line: #dfe5ec;
+      --line-soft: #edf1f5;
+      --paper: #eef2f6;
+      --surface: #ffffff;
+      --surface-soft: #f7f9fb;
+      --navy: #0d2d4d;
+      --navy-2: #164466;
+      --blue: #1769aa;
+      --blue-soft: #eaf4fb;
+      --orange: #e77817;
+      --orange-soft: #fff3e7;
+      --green: #237a57;
+      --green-soft: #eaf7f0;
+      --red: #b5473f;
+      --shadow: 0 18px 44px #cbd4df;
+      --shadow-soft: 0 8px 20px #d8e0e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+      line-height: 1.6;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+      letter-spacing: 0;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .prototype-bar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid var(--line);
+      background: #f8fafc;
+    }
+
+    .prototype-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .prototype-title {
+      min-width: 310px;
+    }
+
+    .prototype-kicker {
+      margin: 0 0 3px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .prototype-title h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .prototype-note {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .note-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .note-chip:before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .note-chip.answer:before {
+      background: var(--orange);
+    }
+
+    .note-chip.archive:before {
+      background: var(--green);
+    }
+
+    .view-tabs {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 22px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .view-tab {
+      min-height: 36px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      color: var(--ink-2);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .view-tab[aria-selected="true"] {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: var(--surface);
+    }
+
+    .canvas {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .browser-frame {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .browser-toolbar {
+      min-height: 46px;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      background: #f9fbfd;
+    }
+
+    .traffic {
+      display: flex;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+
+    .traffic i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+    }
+
+    .traffic i:nth-child(1) {
+      background: #ef8b82;
+    }
+
+    .traffic i:nth-child(2) {
+      background: #e7b347;
+    }
+
+    .traffic i:nth-child(3) {
+      background: #61bc8d;
+    }
+
+    .address {
+      min-width: 0;
+      flex: 1;
+      overflow: hidden;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .toolbar-status {
+      flex: 0 0 auto;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .site-topbar {
+      padding: 8px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line-soft);
+      background: #f6f8fa;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .site-topbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px;
+    }
+
+    .site-header {
+      padding: 22px 32px 18px;
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      background: var(--surface);
+    }
+
+    .company-logo {
+      width: 74px;
+      height: 74px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      object-fit: contain;
+    }
+
+    .company-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .company-heading p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 11px;
+    }
+
+    .trust {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 3px 8px;
+      border: 1px solid #bfe0ce;
+      border-radius: 5px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .trust.orange {
+      border-color: #f2d2af;
+      background: var(--orange-soft);
+      color: #a95b14;
+    }
+
+    .header-contact {
+      min-width: 220px;
+      padding-left: 18px;
+      border-left: 1px solid var(--line);
+    }
+
+    .header-contact small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .header-contact strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .header-contact a {
+      display: inline-flex;
+      margin-top: 9px;
+      min-height: 32px;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .shop-nav {
+      padding: 0 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--navy);
+    }
+
+    .shop-nav button {
+      min-height: 44px;
+      padding: 0 15px;
+      border: 0;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      color: #d8e5ef;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .shop-nav button:hover,
+    .shop-nav button.active {
+      border-bottom-color: var(--orange);
+      background: var(--navy-2);
+      color: #fff;
+    }
+
+    .shop-nav button.guide {
+      color: #ffd6ad;
+    }
+
+    .banner {
+      background: #0e3770;
+    }
+
+    .banner img {
+      display: block;
+      width: 100%;
+      max-height: 378px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .banner-meta {
+      min-height: 44px;
+      padding: 8px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .banner-meta strong {
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .answer-rail {
+      margin: 20px 32px 0;
+      border: 1px solid #f0d2b2;
+      border-radius: 8px;
+      background: #fffaf5;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .answer-rail-head {
+      padding: 13px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid #f6dfc8;
+    }
+
+    .answer-rail-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .answer-rail-title i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .answer-rail-title h3 {
+      margin: 0;
+      color: #7f4515;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .answer-rail-head p {
+      margin: 3px 0 0 18px;
+      color: #946a43;
+      font-size: 12px;
+    }
+
+    .outline-action {
+      min-height: 34px;
+      padding: 6px 11px;
+      border: 1px solid var(--orange);
+      border-radius: 6px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .answer-rail-body {
+      padding: 15px 16px 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.8fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .answer-statement {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+
+    .answer-statement strong {
+      color: var(--navy);
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .quick-fact {
+      min-height: 65px;
+      padding: 9px 10px;
+      border: 1px solid #f0e1d1;
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .quick-fact b {
+      display: block;
+      color: #95683d;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .quick-fact span {
+      display: block;
+      margin-top: 3px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .shop-main {
+      padding: 22px 32px 30px;
+      display: grid;
+      grid-template-columns: 228px minmax(0, 1fr) 262px;
+      gap: 18px;
+      background: var(--surface-soft);
+    }
+
+    .panel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .panel-head {
+      min-height: 46px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfd;
+    }
+
+    .panel-head h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .panel-head a {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .category-list {
+      list-style: none;
+      margin: 0;
+      padding: 9px 12px 12px;
+    }
+
+    .category-list li {
+      padding: 8px 2px;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--ink-2);
+      font-size: 13px;
+    }
+
+    .category-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .category-list li b {
+      color: var(--navy);
+    }
+
+    .product-panel {
+      min-width: 0;
+    }
+
+    .product-grid {
+      padding: 13px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      border-radius: 7px;
+      background: var(--surface);
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+
+    .product-card:hover {
+      border-color: #b6cfe4;
+      box-shadow: 0 7px 16px #d9e1e9;
+      transform: translateY(-2px);
+    }
+
+    .product-card button {
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      text-align: left;
+    }
+
+    .product-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 0.78;
+      object-fit: cover;
+      background: #e9eef3;
+    }
+
+    .product-card-body {
+      padding: 10px;
+    }
+
+    .product-tag {
+      display: inline-flex;
+      min-height: 21px;
+      align-items: center;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .product-card h4 {
+      min-height: 40px;
+      margin: 7px 0 0;
+      color: var(--ink-2);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .product-card p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .quote-panel {
+      align-self: start;
+      position: sticky;
+      top: 168px;
+    }
+
+    .quote-body {
+      padding: 15px;
+    }
+
+    .quote-body h4 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .quote-body > p {
+      margin: 6px 0 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .quote-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .quote-item {
+      display: grid;
+      grid-template-columns: 25px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+      padding: 8px;
+      border: 1px solid var(--line-soft);
+      border-radius: 6px;
+      background: #fbfcfd;
+    }
+
+    .quote-item i {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      background: var(--orange-soft);
+      color: var(--orange);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .quote-item b {
+      display: block;
+      color: var(--ink-2);
+      font-size: 12px;
+    }
+
+    .quote-item span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .quote-button {
+      width: 100%;
+      min-height: 38px;
+      margin-top: 14px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .quote-contact {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .quote-contact small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .quote-contact strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .service-band {
+      padding: 0 32px 30px;
+      background: var(--surface-soft);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .service-item {
+      padding: 16px 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .service-item:last-child {
+      border-right: 0;
+    }
+
+    .service-item b {
+      display: block;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .service-item span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .content-band {
+      padding: 0 32px 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 0.8fr;
+      gap: 18px;
+      background: var(--surface-soft);
+    }
+
+    .content-list {
+      list-style: none;
+      margin: 0;
+      padding: 10px 14px 12px;
+    }
+
+    .content-list li {
+      padding: 9px 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--ink-2);
+      font-size: 13px;
+    }
+
+    .content-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .content-list time {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .company-proof {
+      padding: 15px;
+      color: var(--ink-2);
+      font-size: 13px;
+    }
+
+    .company-proof p {
+      margin: 0;
+    }
+
+    .proof-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .proof-tags span {
+      padding: 4px 8px;
+      border: 1px solid #c9d9e8;
+      border-radius: 5px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .site-footer {
+      padding: 18px 32px 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      background: var(--navy);
+      color: #cbd9e5;
+      font-size: 12px;
+    }
+
+    .site-footer strong {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .site-footer p {
+      max-width: 680px;
+      margin: 4px 0 0;
+    }
+
+    .site-footer-right {
+      min-width: 210px;
+      text-align: right;
+    }
+
+    .guide-shell {
+      background: var(--surface);
+    }
+
+    .guide-head {
+      padding: 30px 38px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 24px;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .guide-head .eyebrow {
+      margin: 0 0 9px;
+      color: #ffd19f;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .guide-head h2 {
+      margin: 0;
+      font-size: 31px;
+      line-height: 1.22;
+    }
+
+    .guide-head p {
+      max-width: 760px;
+      margin: 12px 0 0;
+      color: #d5e2ed;
+      font-size: 15px;
+    }
+
+    .guide-head aside {
+      position: static;
+      align-self: center;
+      padding: 15px;
+      border: 1px solid #4c6c86;
+      border-radius: 7px;
+      background: #163e5f;
+    }
+
+    .guide-head aside b {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .guide-head aside span {
+      display: block;
+      margin-top: 5px;
+      color: #c5d5e1;
+      font-size: 12px;
+    }
+
+    .guide-body {
+      padding: 24px 38px 34px;
+      display: grid;
+      grid-template-columns: 208px minmax(0, 1fr);
+      gap: 24px;
+      background: var(--surface-soft);
+    }
+
+    .guide-index {
+      align-self: start;
+      position: sticky;
+      top: 164px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+    }
+
+    .guide-index h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    .guide-index a {
+      display: block;
+      padding: 7px 8px;
+      border-radius: 5px;
+      color: var(--ink-2);
+      font-size: 12px;
+    }
+
+    .guide-index a:hover {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .guide-content {
+      min-width: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .guide-section {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .guide-section-head {
+      padding: 14px 17px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfd;
+    }
+
+    .guide-section-head h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .guide-section-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .guide-section-body {
+      padding: 16px;
+    }
+
+    .answer-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .answer-card {
+      min-height: 116px;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 7px;
+      background: var(--surface-soft);
+    }
+
+    .answer-card b {
+      display: block;
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    .answer-card span {
+      display: block;
+      margin-top: 7px;
+      color: var(--ink-2);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .scenario {
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fffdf9;
+    }
+
+    .scenario h4 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    .scenario p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .scenario strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--orange);
+      font-size: 12px;
+    }
+
+    .guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .guide-table th,
+    .guide-table td {
+      padding: 10px 11px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .guide-table th {
+      background: #eef4f8;
+      color: var(--navy);
+      font-size: 12px;
+    }
+
+    .guide-table td {
+      color: var(--ink-2);
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .check-item {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--line-soft);
+      border-radius: 6px;
+      background: var(--surface-soft);
+    }
+
+    .check-item i {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .check-item b {
+      display: block;
+      color: var(--ink-2);
+      font-size: 12px;
+    }
+
+    .check-item span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .faq {
+      padding: 11px 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 6px;
+    }
+
+    .faq b {
+      display: block;
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .faq p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .source-note {
+      margin: 13px 0 0;
+      padding: 10px 12px;
+      border-left: 3px solid var(--orange);
+      background: var(--orange-soft);
+      color: #7f5128;
+      font-size: 12px;
+    }
+
+    .product-page {
+      background: var(--surface-soft);
+    }
+
+    .product-breadcrumb {
+      padding: 14px 32px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .product-main {
+      padding: 24px 32px 30px;
+      display: grid;
+      grid-template-columns: 410px minmax(0, 1fr) 260px;
+      gap: 20px;
+    }
+
+    .product-photo {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .product-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 0.82;
+      object-fit: cover;
+      background: #e7edf2;
+    }
+
+    .photo-caption {
+      padding: 11px 13px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .product-copy h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 26px;
+      line-height: 1.3;
+    }
+
+    .product-copy > p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .trade-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .trade-fact {
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .trade-fact b {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .trade-fact span {
+      display: block;
+      margin-top: 3px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .parameter-layer {
+      margin-top: 18px;
+      overflow: hidden;
+      border: 2px solid #bdd7e9;
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .parameter-head {
+      padding: 13px 15px;
+      border-bottom: 1px solid #d4e6f1;
+      background: var(--blue-soft);
+    }
+
+    .parameter-head h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .parameter-head p {
+      margin: 3px 0 0;
+      color: #4b6b83;
+      font-size: 12px;
+    }
+
+    .parameter-grid {
+      padding: 13px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .parameter {
+      min-height: 44px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 5px;
+      background: #fcfdfe;
+      font-size: 12px;
+    }
+
+    .parameter b {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .parameter span {
+      color: var(--ink-2);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .parameter span.waiting {
+      color: var(--orange);
+    }
+
+    .product-aside {
+      align-self: start;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .product-aside h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .product-aside p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .process {
+      display: grid;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+    }
+
+    .process-item i {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .process-item b {
+      display: block;
+      color: var(--ink-2);
+      font-size: 12px;
+    }
+
+    .process-item span {
+      display: block;
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .back-button {
+      min-height: 34px;
+      margin-top: 17px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-soft);
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .prototype-footer {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 22px 34px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .prototype-footer strong {
+      color: var(--ink-2);
+    }
+
+    @media (max-width: 1120px) {
+      .answer-rail-body,
+      .shop-main,
+      .product-main {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-panel {
+        position: static;
+      }
+
+      .answer-rail-body {
+        gap: 13px;
+      }
+
+      .product-aside {
+        order: 3;
+      }
+
+      .guide-head,
+      .guide-body {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-index {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        align-items: center;
+      }
+
+      .guide-index h3 {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .prototype-inner,
+      .site-topbar,
+      .site-header,
+      .banner-meta,
+      .site-footer {
+        display: block;
+      }
+
+      .prototype-note {
+        justify-content: flex-start;
+        margin-top: 10px;
+      }
+
+      .site-header {
+        padding: 18px 20px;
+      }
+
+      .header-contact {
+        margin-top: 15px;
+        padding: 13px 0 0;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .site-topbar {
+        padding: 8px 20px;
+      }
+
+      .site-topbar-right {
+        justify-content: flex-start;
+        margin-top: 4px;
+      }
+
+      .shop-nav {
+        padding: 0 20px;
+      }
+
+      .answer-rail,
+      .shop-main,
+      .service-band,
+      .content-band,
+      .product-main,
+      .product-breadcrumb {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .answer-rail {
+        margin: 16px 20px 0;
+      }
+
+      .quick-facts,
+      .service-grid,
+      .content-band,
+      .answer-cards,
+      .scenario-grid,
+      .checklist,
+      .faq-grid,
+      .trade-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .service-item:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .guide-head {
+        padding: 24px 20px;
+      }
+
+      .guide-body {
+        padding: 17px 20px 25px;
+      }
+
+      .site-footer-right {
+        margin-top: 16px;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .prototype-title {
+        min-width: 0;
+      }
+
+      .prototype-title h1 {
+        font-size: 15px;
+      }
+
+      .canvas {
+        padding: 12px;
+      }
+
+      .company-heading h2 {
+        font-size: 22px;
+      }
+
+      .site-header {
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .company-logo {
+        width: 58px;
+        height: 58px;
+      }
+
+      .header-contact {
+        grid-column: 1 / -1;
+      }
+
+      .banner img {
+        min-height: 175px;
+        object-fit: cover;
+      }
+
+      .answer-rail-head {
+        display: block;
+      }
+
+      .outline-action {
+        margin-top: 10px;
+      }
+
+      .quick-facts,
+      .service-grid,
+      .content-band,
+      .answer-cards,
+      .scenario-grid,
+      .checklist,
+      .faq-grid,
+      .trade-facts,
+      .parameter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-item,
+      .service-item:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .service-item:last-child {
+        border-bottom: 0;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-copy h2,
+      .guide-head h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="prototype-bar">
+    <div class="prototype-inner">
+      <div class="prototype-title">
+        <p class="prototype-kicker">VIP 商铺视觉优化原型</p>
+        <h1>广州佰旺升降机械：首页保留 banner，答案层轻量化下沉</h1>
+      </div>
+      <div class="prototype-note" aria-label="改版原则">
+        <span class="note-chip">Banner：品牌展示</span>
+        <span class="note-chip answer">采购速览：首页轻答案</span>
+        <span class="note-chip archive">采购指南：完整答案层</span>
+      </div>
+    </div>
+    <div class="view-tabs" role="tablist" aria-label="原型页面">
+      <button class="view-tab" type="button" aria-selected="true" data-view="home">首页视觉优化</button>
+      <button class="view-tab" type="button" aria-selected="false" data-view="guide">独立采购指南</button>
+      <button class="view-tab" type="button" aria-selected="false" data-view="product">产品详情参数层</button>
+    </div>
+  </header>
+
+  <main class="canvas">
+    <section class="screen active" id="home" aria-label="首页视觉优化">
+      <div class="browser-frame">
+        <div class="browser-toolbar">
+          <div class="traffic"><i></i><i></i><i></i></div>
+          <div class="address">https://qiye.gongchang.com/bwsjjx/</div>
+          <div class="toolbar-status">VIP 商铺首页</div>
+        </div>
+
+        <div class="site-topbar">
+          <span>欢迎来到世界工厂网！</span>
+          <div class="site-topbar-right">
+            <span>产品服务</span>
+            <span>客服中心</span>
+            <span>移动版</span>
+          </div>
+        </div>
+
+        <header class="site-header">
+          <img class="company-logo" src="https://img020.gcimg.net/201803/03/23/233029252265280.jpg" alt="广州佰旺升降机械有限公司">
+          <div class="company-heading">
+            <h2>广州佰旺升降机械有限公司</h2>
+            <p>导轨式升降机 · 固定式升降机 · 简易升降货梯 · 铝合金升降机</p>
+            <div class="trust-row">
+              <span class="trust">营业执照亮照</span>
+              <span class="trust">制造商 · 贸易商</span>
+              <span class="trust orange">注册年份 2013</span>
+              <span class="trust orange">页面更新至 2026-09-10</span>
+            </div>
+          </div>
+          <div class="header-contact">
+            <small>采购咨询</small>
+            <strong>020-8153 2900</strong>
+            <a href="tel:02081532900">联系商家</a>
+          </div>
+        </header>
+
+        <nav class="shop-nav" aria-label="商铺导航">
+          <button type="button" class="active" data-view="home">网站首页</button>
+          <button type="button">公司介绍</button>
+          <button type="button">供应产品</button>
+          <button type="button" class="guide" data-view="guide">采购指南</button>
+          <button type="button">新闻中心</button>
+          <button type="button">荣誉资质</button>
+          <button type="button">联系方式</button>
+          <button type="button">诚信档案</button>
+        </nav>
+
+        <div class="banner">
+          <img src="https://img020.gcimg.net/201802/10/09/094116222265280.jpg" alt="广州佰旺升降机械品牌 banner">
+        </div>
+        <div class="banner-meta">
+          <strong>广州佰旺升降机械</strong>
+          <span>设计 · 制造 · 安装 · 维修一体化服务</span>
+        </div>
+
+        <section class="answer-rail" aria-label="首页采购速览">
+          <div class="answer-rail-head">
+            <div>
+              <div class="answer-rail-title">
+                <i></i>
+                <h3>采购速览</h3>
+              </div>
+              <p>只保留采购者最先需要的几条信息，不抢 banner 的品牌展示任务。</p>
+            </div>
+            <button class="outline-action" type="button" data-view="guide">查看完整采购指南</button>
+          </div>
+          <div class="answer-rail-body">
+            <p class="answer-statement"><strong>广州佰旺升降机械有限公司</strong>主要提供导轨式、固定式、简易升降货梯及液压升降设备，覆盖仓库、工厂、商场、物流等常见货物升降场景，支持标准产品与按场地需求沟通定做。</p>
+            <div class="quick-facts">
+              <div class="quick-fact"><b>核心产品</b><span>升降货梯 / 液压货梯</span></div>
+              <div class="quick-fact"><b>适用场景</b><span>仓库 / 工厂 / 物流</span></div>
+              <div class="quick-fact"><b>服务方式</b><span>设计 · 制造 · 安装 · 维修</span></div>
+              <div class="quick-fact"><b>询价重点</b><span>载重 / 高度 / 尺寸 / 层站</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="shop-main">
+          <aside class="panel">
+            <div class="panel-head">
+              <h3>按场景选产品</h3>
+              <a href="#product-list">全部</a>
+            </div>
+            <ul class="category-list">
+              <li><b>仓库货物升降</b><br>无地坑 · 无机房 · 大台面</li>
+              <li><b>工厂车间配套</b><br>导轨式 · 固定式 · 工业货梯</li>
+              <li><b>物流装卸</b><br>装卸车平台 · 登车桥</li>
+              <li><b>商场与超市</b><br>简易货梯 · 小型液压货梯</li>
+              <li><b>特殊环境</b><br>防爆 · 防腐 · 不锈钢</li>
+              <li><b>其他设备</b><br>传菜机 · 无障碍升降平台</li>
+            </ul>
+          </aside>
+
+          <section class="panel product-panel" id="product-list">
+            <div class="panel-head">
+              <h3>推荐产品</h3>
+              <a href="#" data-view="product">进入产品详情</a>
+            </div>
+            <div class="product-grid">
+              <article class="product-card">
+                <button type="button" data-view="product">
+                  <img src="https://img020.gcimg.net/images/20231119/d2f977bfa8f27ed1362bfc60ba1f4491.jpg-190x190.jpg" alt="SJHT型商场小型液压货梯">
+                  <div class="product-card-body">
+                    <span class="product-tag">商场 / 小型</span>
+                    <h4>SJHT 型商场小型液压货梯</h4>
+                    <p>适合货物楼层转运，具体参数按场地确认</p>
+                  </div>
+                </button>
+              </article>
+              <article class="product-card">
+                <button type="button" data-view="product">
+                  <img src="https://img020.gcimg.net/images/20260818/da5e70a0a6mf59b995970h490a77f594.jpg-190x190.jpg" alt="CKHT型超市仓库货梯">
+                  <div class="product-card-body">
+                    <span class="product-tag">超市 / 仓库</span>
+                    <h4>CKHT 型超市用仓库货梯</h4>
+                    <p>支持定做沟通，采购前补充载重与高度</p>
+                  </div>
+                </button>
+              </article>
+              <article class="product-card">
+                <button type="button" data-view="product">
+                  <img src="https://img020.gcimg.net/images/20260827/6905ec9eeec217707af9be1c81194fed.jpg-190x190.jpg" alt="YYHT型导轨式液压升降货梯">
+                  <div class="product-card-body">
+                    <span class="product-tag">工厂 / 车间</span>
+                    <h4>YYHT 型导轨式液压升降货梯</h4>
+                    <p>适合厂房货物升降，按项目需求选型</p>
+                  </div>
+                </button>
+              </article>
+              <article class="product-card">
+                <button type="button" data-view="product">
+                  <img src="https://img020.gcimg.net/images/20260827/f7ed8d2561qec81592118be034f7db55.jpg-190x190.jpg" alt="SJHT型无地坑液压升降货梯">
+                  <div class="product-card-body">
+                    <span class="product-tag">楼上安装</span>
+                    <h4>SJHT 型楼上安装无地坑液压升降货梯</h4>
+                    <p>重点确认地面、层高、门洞和安装条件</p>
+                  </div>
+                </button>
+              </article>
+              <article class="product-card">
+                <button type="button" data-view="product">
+                  <img src="https://img020.gcimg.net/images/20260828/07066c6eb8ac67f01e626d11cd9c1ccf.jpg-190x190.jpg" alt="SJHT型物流用液压升降货梯">
+                  <div class="product-card-body">
+                    <span class="product-tag">物流 / 转运</span>
+                    <h4>SJHT 型物流用液压升降货梯</h4>
+                    <p>适合仓储转运，询价需说明货物类型</p>
+                  </div>
+                </button>
+              </article>
+              <article class="product-card">
+                <button type="button" data-view="product">
+                  <img src="https://img020.gcimg.net/images/20260823/5532ea1509uf9c71b5896n49d5f374e7.jpg-190x190.jpg" alt="SJHT型无机房工业升降货梯">
+                  <div class="product-card-body">
+                    <span class="product-tag">工业 / 无机房</span>
+                    <h4>SJHT 型无机房工业用升降货梯</h4>
+                    <p>适合工业场地，参数与报价需技术确认</p>
+                  </div>
+                </button>
+              </article>
+            </div>
+          </section>
+
+          <aside class="panel quote-panel">
+            <div class="panel-head">
+              <h3>快速询价</h3>
+              <span class="product-tag">减少来回沟通</span>
+            </div>
+            <div class="quote-body">
+              <h4>先告诉我们这 4 件事</h4>
+              <p>把模糊的“多少钱”变成可报价的采购需求。</p>
+              <div class="quote-list">
+                <div class="quote-item"><i>1</i><div><b>使用场景</b><span>仓库、工厂、物流、商场等</span></div></div>
+                <div class="quote-item"><i>2</i><div><b>载重与提升高度</b><span>货物重量、需要升到几层</span></div></div>
+                <div class="quote-item"><i>3</i><div><b>台面与门洞尺寸</b><span>长、宽、现场可用空间</span></div></div>
+                <div class="quote-item"><i>4</i><div><b>数量与交期</b><span>采购数量、项目时间要求</span></div></div>
+              </div>
+              <button class="quote-button" type="button" data-view="product">填写采购参数</button>
+              <div class="quote-contact">
+                <small>电话咨询</small>
+                <strong>139 2889 8077</strong>
+                <small>业务电话：020-8153 2900</small>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="service-band">
+          <div class="service-grid">
+            <div class="service-item"><b>设计</b><span>根据使用场景和现场条件沟通方案</span></div>
+            <div class="service-item"><b>制造</b><span>液压升降设备与货梯产品供应</span></div>
+            <div class="service-item"><b>安装</b><span>支持安装条件与现场信息确认</span></div>
+            <div class="service-item"><b>维修</b><span>提供售后咨询与维修联系入口</span></div>
+          </div>
+        </section>
+
+        <section class="content-band">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>行业内容</h3>
+              <a href="#">更多</a>
+            </div>
+            <ul class="content-list">
+              <li><span>液压升降货梯倍受青睐的原因</span><time>企业资讯</time></li>
+              <li><span>固定式升降机保养 5 原则</span><time>维护知识</time></li>
+              <li><span>深圳升降机价格影响因素</span><time>采购参考</time></li>
+              <li><span>导轨式升降机价格如何核算</span><time>采购参考</time></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h3>公司介绍</h3>
+              <a href="#">详细介绍</a>
+            </div>
+            <div class="company-proof">
+              <p>广州佰旺升降机械有限公司公开信息显示，公司提供液压升降设备的设计、制造、安装、维修服务，产品覆盖导轨式升降机、固定式升降机、简易升降货梯、铝合金升降机等。</p>
+              <div class="proof-tags">
+                <span>广州白云区</span>
+                <span>营业执照亮照</span>
+                <span>24 小时服务热线</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <div>
+            <strong>广州佰旺升降机械有限公司</strong>
+            <p>地址：白云区鹤龙七路 428 号　电话：020-8153 2900　手机：139 2889 8077</p>
+          </div>
+          <div class="site-footer-right">
+            <span>世界工厂网 VIP 商铺</span>
+            <br>
+            <span>让采购者先看懂，再发起询价</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <section class="screen" id="guide" aria-label="独立采购指南">
+      <div class="browser-frame guide-shell">
+        <div class="browser-toolbar">
+          <div class="traffic"><i></i><i></i><i></i></div>
+          <div class="address">https://qiye.gongchang.com/bwsjjx/procurement-guide/</div>
+          <div class="toolbar-status">独立答案页</div>
+        </div>
+
+        <div class="guide-head">
+          <div>
+            <p class="eyebrow">企业采购档案 · 独立页面</p>
+            <h2>广州佰旺升降机械采购指南</h2>
+            <p>集中回答“你们做什么、适合什么场景、采购要准备什么、如何联系”的完整信息。它承载完整答案层，不挤占首页 banner 的品牌空间。</p>
+          </div>
+          <aside>
+            <b>采购入口</b>
+            <span>提交场景、载重、提升高度、台面尺寸和交期，便于技术人员确认方案。</span>
+            <button class="quote-button" type="button" data-view="product">开始填写采购参数</button>
+          </aside>
+        </div>
+
+        <div class="guide-body">
+          <aside class="guide-index">
+            <h3>本页导航</h3>
+            <a href="#guide-answer">企业摘要</a>
+            <a href="#guide-scenario">按场景选型</a>
+            <a href="#guide-parameters">采购参数</a>
+            <a href="#guide-evidence">企业能力</a>
+            <a href="#guide-faq">常见问题</a>
+          </aside>
+
+          <div class="guide-content">
+            <section class="guide-section" id="guide-answer">
+              <div class="guide-section-head">
+                <h3>先回答 4 个问题</h3>
+                <p>把商铺里分散的信息整理成采购者和 AI 都容易提取的独立事实块。</p>
+              </div>
+              <div class="guide-section-body">
+                <div class="answer-cards">
+                  <div class="answer-card"><b>公司是谁</b><span>广州佰旺升降机械有限公司，提供液压升降设备相关产品与服务。</span></div>
+                  <div class="answer-card"><b>主要卖什么</b><span>导轨式、固定式、简易升降货梯、铝合金升降机等。</span></div>
+                  <div class="answer-card"><b>适合谁采购</b><span>仓库、工厂、物流、商场等有货物升降需求的采购者。</span></div>
+                  <div class="answer-card"><b>怎么开始询价</b><span>提供场景、载重、提升高度、台面尺寸、数量与交期。</span></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="guide-section" id="guide-scenario">
+              <div class="guide-section-head">
+                <h3>按场景选产品</h3>
+                <p>首页用“推荐产品”，本页用场景与选型逻辑承接深度采购。</p>
+              </div>
+              <div class="guide-section-body">
+                <div class="scenario-grid">
+                  <div class="scenario"><h4>仓库货物升降</h4><p>关注楼层、载重、台面、门洞和是否需要地坑。</p><strong>优先看：SJHT / CKHT</strong></div>
+                  <div class="scenario"><h4>工厂车间配套</h4><p>关注货物类型、提升频次、现场空间和安装条件。</p><strong>优先看：YYHT / 工业货梯</strong></div>
+                  <div class="scenario"><h4>物流装卸转运</h4><p>关注车辆/托盘尺寸、装卸高度、数量和交付时间。</p><strong>优先看：物流货梯 / 登车桥</strong></div>
+                  <div class="scenario"><h4>商场与超市</h4><p>关注楼层关系、货物尺寸、噪声与使用时段。</p><strong>优先看：小型液压货梯</strong></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="guide-section" id="guide-parameters">
+              <div class="guide-section-head">
+                <h3>采购参数清单</h3>
+                <p>平台可以把这些字段做成询价表单；具体数值由供应商确认，页面不预先编造。</p>
+              </div>
+              <div class="guide-section-body">
+                <table class="guide-table">
+                  <thead>
+                    <tr><th>参数组</th><th>采购者填写</th><th>用于判断</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>使用场景</td><td>仓库 / 工厂 / 物流 / 商场 / 其他</td><td>匹配产品类型与安装环境</td></tr>
+                    <tr><td>载重需求</td><td>常规货物重量、最大货物重量</td><td>确认设备承载能力</td></tr>
+                    <tr><td>提升条件</td><td>提升高度、层站数量、停靠位置</td><td>确认导轨、层门与行程方案</td></tr>
+                    <tr><td>现场尺寸</td><td>台面长宽、门洞、井道/地面条件</td><td>判断能否安装与是否需要定做</td></tr>
+                    <tr><td>采购计划</td><td>数量、交期、安装地区</td><td>确认报价、交付与服务安排</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="guide-section" id="guide-evidence">
+              <div class="guide-section-head">
+                <h3>企业能力与可信信息</h3>
+                <p>证据块要区分平台可见事实与供应商待确认材料。</p>
+              </div>
+              <div class="guide-section-body">
+                <div class="checklist">
+                  <div class="check-item"><i>已</i><div><b>商铺企业名与联系方式</b><span>页面公开可见，可作为联系入口。</span></div></div>
+                  <div class="check-item"><i>已</i><div><b>营业执照亮照</b><span>商铺头部有工商信息亮照入口。</span></div></div>
+                  <div class="check-item"><i>已</i><div><b>设计、制造、安装、维修</b><span>公司介绍区域公开出现相关能力描述。</span></div></div>
+                  <div class="check-item"><i>待</i><div><b>特种设备许可证与证书</b><span>正式展示前由供应商上传并确认有效期。</span></div></div>
+                  <div class="check-item"><i>待</i><div><b>项目案例与客户授权</b><span>每个案例补充场景、产品和可公开范围。</span></div></div>
+                  <div class="check-item"><i>待</i><div><b>标准产品与定做边界</b><span>明确哪些信息需要技术评估后报价。</span></div></div>
+                </div>
+                <p class="source-note">视觉上不把“待确认”伪装成已认证结果；平台可先搭模块，供应商补齐证据后再展示。</p>
+              </div>
+            </section>
+
+            <section class="guide-section" id="guide-faq">
+              <div class="guide-section-head">
+                <h3>采购者常见问题</h3>
+                <p>FAQ 是答案层的一部分，但不需要在首页一次性展示全部。</p>
+              </div>
+              <div class="guide-section-body">
+                <div class="faq-grid">
+                  <div class="faq"><b>升降货梯报价需要哪些信息？</b><p>至少提供使用场景、载重、提升高度、台面尺寸、层站、数量和交期。</p></div>
+                  <div class="faq"><b>可以按现场条件定做吗？</b><p>商铺现有产品信息包含“定做”表达，具体定制范围与报价需供应商确认。</p></div>
+                  <div class="faq"><b>没有地坑能安装吗？</b><p>商铺产品信息中有“无地坑”相关产品，是否适用需结合现场条件评估。</p></div>
+                  <div class="faq"><b>如何联系佰旺升降机械？</b><p>可通过商铺电话 020-8153 2900 或手机 139 2889 8077 咨询。</p></div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="product" aria-label="产品详情参数层">
+      <div class="browser-frame product-page">
+        <div class="browser-toolbar">
+          <div class="traffic"><i></i><i></i><i></i></div>
+          <div class="address">https://qiye.gongchang.com/bwsjjx/sell/itemid-demo.html</div>
+          <div class="toolbar-status">产品详情页</div>
+        </div>
+        <div class="product-breadcrumb">网站首页　›　供应产品　›　液压升降货梯　›　YYHT 型导轨式液压升降货梯</div>
+        <div class="product-main">
+          <div class="product-photo">
+            <img src="https://img020.gcimg.net/images/20260827/6905ec9eeec217707af9be1c81194fed.jpg-190x190.jpg" alt="YYHT型导轨式液压升降货梯">
+            <div class="photo-caption">产品图片来自广州佰旺升降机械商铺公开展示，正式上线时建议补充多角度图与安装现场图。</div>
+          </div>
+
+          <div class="product-copy">
+            <h2>YYHT 型导轨式液压升降货梯</h2>
+            <p>适合工厂、仓库等货物垂直转运场景。当前页面先呈现采购者需要的关键字段，技术参数与报价由供应商确认后发布。</p>
+            <div class="trust-row">
+              <span class="trust">供应产品</span>
+              <span class="trust orange">支持定做沟通</span>
+              <span class="trust orange">需技术确认报价</span>
+            </div>
+
+            <div class="trade-facts">
+              <div class="trade-fact"><b>品牌</b><span>佰旺</span></div>
+              <div class="trade-fact"><b>产品类型</b><span>液压升降货梯</span></div>
+              <div class="trade-fact"><b>适用场景</b><span>工厂 / 仓库</span></div>
+            </div>
+
+            <section class="parameter-layer">
+              <div class="parameter-head">
+                <h3>采购参数层</h3>
+                <p>让采购者知道要填什么，也让供应商知道需要确认什么。</p>
+              </div>
+              <div class="parameter-grid">
+                <div class="parameter"><b>额定载重</b><span class="waiting">待供应商确认</span></div>
+                <div class="parameter"><b>提升高度</b><span class="waiting">按项目填写</span></div>
+                <div class="parameter"><b>台面尺寸</b><span class="waiting">按现场填写</span></div>
+                <div class="parameter"><b>层站 / 停靠</b><span class="waiting">按现场填写</span></div>
+                <div class="parameter"><b>门洞与安装条件</b><span class="waiting">需现场确认</span></div>
+                <div class="parameter"><b>货物类型</b><span class="waiting">采购者填写</span></div>
+                <div class="parameter"><b>采购数量</b><span class="waiting">采购者填写</span></div>
+                <div class="parameter"><b>目标交期</b><span class="waiting">采购者填写</span></div>
+              </div>
+            </section>
+          </div>
+
+          <aside class="product-aside">
+            <h3>获取方案与报价</h3>
+            <p>先提交基础条件，技术人员再确认适配型号、尺寸与报价。</p>
+            <div class="process">
+              <div class="process-item"><i>1</i><div><b>填写采购参数</b><span>场景、载重、高度、尺寸</span></div></div>
+              <div class="process-item"><i>2</i><div><b>技术确认</b><span>核对安装与定制边界</span></div></div>
+              <div class="process-item"><i>3</i><div><b>获取报价方案</b><span>确认价格、交期与服务</span></div></div>
+            </div>
+            <button class="quote-button" type="button">立即询价</button>
+            <button class="back-button" type="button" data-view="home">返回商铺首页</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="prototype-footer">
+    <strong>本原型的视觉结论：</strong>不要把完整答案层塞进 banner。首页保留品牌图片和商业气质，只新增一条“采购速览”；完整的企业事实、场景选型、证据、FAQ 放到独立“采购指南”；产品详情页只补该产品的采购参数和询价路径。
+  </footer>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".view-tab"));
+      var screens = Array.prototype.slice.call(document.querySelectorAll(".screen"));
+      var links = Array.prototype.slice.call(document.querySelectorAll("[data-view]"));
+
+      function showView(view) {
+        screens.forEach(function (screen) {
+          screen.classList.toggle("active", screen.id === view);
+        });
+        tabs.forEach(function (tab) {
+          tab.setAttribute("aria-selected", tab.getAttribute("data-view") === view ? "true" : "false");
+        });
+        document.querySelectorAll(".shop-nav button").forEach(function (button) {
+          button.classList.toggle("active", button.getAttribute("data-view") === view || (!button.hasAttribute("data-view") && view === "home" && button.textContent.indexOf("网站首页") > -1));
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var view = link.getAttribute("data-view");
+          if (!view) return;
+          event.preventDefault();
+          showView(view);
+        });
+      });
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          showView(tab.getAttribute("data-view"));
+        });
+      });
+    }());
+  </script>
+</body>
+</html>
